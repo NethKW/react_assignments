@@ -1,0 +1,35 @@
+.main {
+    min-height: 100vh;     
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+    background: linear-gradient(90deg, #284B6Cff, rgb(98, 123, 132));
+    color: white;           
+    padding: 20px;          
+}
+input{
+    padding: 15px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    width: 50%;
+    
+}
+.box{
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    border: 2px solid #284B6C;
+    border-radius: 5px;
+    padding: 55px;
+}
+.horizontal {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  color: rgb(2, 32, 49);
+  font-size: large;
+}
