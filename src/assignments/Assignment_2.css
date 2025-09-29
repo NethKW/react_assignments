@@ -23,11 +23,12 @@ p{
 
 input{
     padding: 15px;
-    margin: 10px;
-    background-color: rgba(5, 17, 55, 0.7);
-    border-color: rgba(5, 17, 55, 0.7);
+    margin: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     width: 50%;
+
     
 }
 .box{
