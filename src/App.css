@@ -15,7 +15,7 @@ html, body {
 }
 
 
-.links-container {
+.links {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -23,7 +23,7 @@ html, body {
 }
 
 
-.assignment-link {
+.alink {
   text-decoration: none;
   color: white;
   background-color: rgba(0,0,0,0.3);
@@ -34,7 +34,7 @@ html, body {
   text-align: center;
 }
 
-.assignment-link:hover {
+.alink:hover {
   background-color: rgba(0,0,0,0.5);
   transform: scale(1.05);
 }

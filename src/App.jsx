@@ -7,10 +7,10 @@ function App() {
     <div className="app">
       <h1>React Assignments</h1>
 
-      <div className="links-container">
-        <Link to="/ASG-01" className="assignment-link">Assignment 1</Link>
-        <Link to="/ASG-02" className="assignment-link">Assignment 2</Link>
-        <Link to="/ASG-03" className="assignment-link">Assignment 3</Link>
+      <div className="links">
+        <Link to="/ASG-01" className="alink">Assignment 1</Link>
+        <Link to="/ASG-02" className="alink">Assignment 2</Link>
+        <Link to="/ASG-03" className="alink">Assignment 3</Link>
         {/* Add more links here if needed */}
       </div>
     </div>
