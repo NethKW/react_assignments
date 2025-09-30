@@ -1,15 +1,17 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
+
 .app {
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(90deg, rgb(98, 123, 132), #284B6Cff);
   color: white;
 }
@@ -26,7 +28,7 @@ html, body {
 .alink {
   text-decoration: none;
   color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 10px 20px;
   border-radius: 8px;
   transition: 0.3s;
@@ -35,6 +37,6 @@ html, body {
 }
 
 .alink:hover {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
 }
