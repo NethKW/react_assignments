@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 function Assignment_3() {
-  const [numbers, setNumbers] = useState([]); 
+  const [numbers, setNumbers] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const ColorButton = styled(Button)({
@@ -16,7 +16,7 @@ function Assignment_3() {
   });
 
   const handleAdd = () => {
-    
+
     const num = parseFloat(inputValue);
     if (!isNaN(num)) {
       setNumbers([...numbers, num]);
@@ -29,7 +29,7 @@ function Assignment_3() {
   const average = numbers.length > 0 ? (total / numbers.length).toFixed(2) : 0;
 
   return (
-    <div className="main">
+    <div className="main asg-3">
       <h1>Assignment #3</h1>
 
       <div className="box">

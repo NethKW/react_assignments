@@ -11,7 +11,6 @@ function App() {
         <Link to="/ASG-01" className="alink">Assignment 1</Link>
         <Link to="/ASG-02" className="alink">Assignment 2</Link>
         <Link to="/ASG-03" className="alink">Assignment 3</Link>
-        {/* Add more links here if needed */}
       </div>
     </div>
   );
