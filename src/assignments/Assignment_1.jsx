@@ -5,7 +5,7 @@ import { styled } from "@mui/material";
 import Stack from '@mui/material/Stack';
 
 
-export function Assignment_1() {
+function Assignment_1() {
     const [currentState, setcurrentState] = useState(0);
 
     const ColorButton = styled(Button)({

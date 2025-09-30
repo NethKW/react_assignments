@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 
-export function Assignment_2() {
+function Assignment_2() {
     const [num1,setNum1] = useState('');
     const [num2,setNum2] = useState('');
     const [operation, setOperation] = useState('');

@@ -4,7 +4,7 @@ import { styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export function Assignment_3() {
+function Assignment_3() {
   const [numbers, setNumbers] = useState([]); 
   const [inputValue, setInputValue] = useState("");
 
