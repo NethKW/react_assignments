@@ -1,0 +1,54 @@
+.main.asg-4 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #284B6Cff, rgb(98, 123, 132));
+    color: white;
+    padding: 20px;
+}
+
+.asg-4 input {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    width: 50%;
+}
+
+.asg-4 input::placeholder {
+    color: black;
+}
+
+.asg-4 .box {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border: 2px solid #284B6C;
+    border-radius: 5px;
+    padding: 55px;
+}
+
+.asg-4 .list {
+    padding: 0;
+    margin-bottom: 20px;
+    color: rgb(2, 32, 49);
+    font-size: large;
+}
+
+.asg-4 .list li {
+    margin: 15px 10px;
+    gap: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.asg-4 .list Button:hover{
+    background-color: rgb(101, 2, 2);
+    color: black;
+    border-color: rgb(101, 2, 2);
+
+}
