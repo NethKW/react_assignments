@@ -6,12 +6,8 @@ import Stack from "@mui/material/Stack";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-function Assignment_6() {
-  const [style, setStyle] = useState([]);
-  const [ruleName, setRuleName] = useState("");
-  const [ruleValue, setRuleValue] = useState("");
 
-  const ColorButton = styled(Button)({
+const ColorButton = styled(Button)({
     backgroundColor: "#0E2148",
     "&:hover": {
       backgroundColor: "#1f5b8dff",
@@ -24,6 +20,13 @@ function Assignment_6() {
       backgroundColor: "#3d4c58ff",
     },
   });
+
+function Assignment_6() {
+  const [style, setStyle] = useState([]);
+  const [ruleName, setRuleName] = useState("");
+  const [ruleValue, setRuleValue] = useState("");
+
+  
 
   const handleAdd = () => {
     if (ruleName.trim() !== "" && ruleValue.trim() !== "") {
