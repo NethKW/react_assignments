@@ -18,6 +18,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/ASG-04" element={<Assignment_4 />} />
       <Route path="/ASG-05" element={<Assignment_5 />} />
       <Route path="/ASG-06" element={<Assignment_6 />} />
+      <Route path="/ASG-07" element={<Assignment_7 />} />
     </Routes>
   </HashRouter>
 )
