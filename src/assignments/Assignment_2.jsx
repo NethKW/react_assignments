@@ -9,6 +9,12 @@ import { styled } from "@mui/material";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
+const ColorButton = styled(Button)({
+    backgroundColor: '#0E2148',
+    "&:hover": {
+      backgroundColor: '#1f5b8dff'
+    }
+  })
 
 function Assignment_2() {
   const [num1, setNum1] = useState('');
@@ -18,12 +24,7 @@ function Assignment_2() {
 
   );
 
-  const ColorButton = styled(Button)({
-    backgroundColor: '#0E2148',
-    "&:hover": {
-      backgroundColor: '#1f5b8dff'
-    }
-  })
+  
 
   const handleChange = (event) => {
     setOperation(event.target.value);
