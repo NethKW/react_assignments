@@ -6,6 +6,7 @@ import Assignment_3 from './assignments/Assignment_3.jsx';
 import Assignment_4 from './assignments/Assignment_4.jsx';
 import Assignment_5 from './assignments/Assignment_5.jsx';
 import Assignment_6 from './assignments/Assignment_6.jsx';
+import Assignment_7 from './assignments/Assignment_7.jsx';
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
