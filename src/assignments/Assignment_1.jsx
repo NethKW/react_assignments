@@ -4,16 +4,17 @@ import Button from '@mui/material/Button';
 import { styled } from "@mui/material";
 import Stack from '@mui/material/Stack';
 
-
-function Assignment_1() {
-  const [currentState, setCurrentState] = useState(0);
-
-  const ColorButton = styled(Button)({
+const ColorButton = styled(Button)({
     backgroundColor: '#0E2148',
     "&:hover": {
       backgroundColor: '#1f5b8dff'
     }
   })
+
+function Assignment_1() {
+  const [currentState, setCurrentState] = useState(0);
+
+  
   return (
     <div className="main">
       <h1>Assignment #1</h1>
