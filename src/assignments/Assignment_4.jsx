@@ -4,16 +4,18 @@ import { styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-function Assignment_4() {
-  const [numbers, setNumbers] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
-  const ColorButton = styled(Button)({
+const ColorButton = styled(Button)({
     backgroundColor: "#0E2148",
     "&:hover": {
       backgroundColor: "#1f5b8dff",
     },
   });
+  
+function Assignment_4() {
+  const [numbers, setNumbers] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  
 
 
   const handleAdd = () => {
