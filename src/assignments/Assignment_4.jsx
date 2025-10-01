@@ -5,18 +5,15 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 const ColorButton = styled(Button)({
-    backgroundColor: "#0E2148",
-    "&:hover": {
-      backgroundColor: "#1f5b8dff",
-    },
-  });
-  
+  backgroundColor: "#0E2148",
+  "&:hover": {
+    backgroundColor: "#1f5b8dff",
+  },
+});
+
 function Assignment_4() {
   const [numbers, setNumbers] = useState([]);
   const [inputValue, setInputValue] = useState("");
-
-  
-
 
   const handleAdd = () => {
     const num = parseFloat(inputValue);
@@ -52,7 +49,7 @@ function Assignment_4() {
           ))}
         </ol>
 
-    
+
         <Stack direction="row" spacing={2} alignItems="center">
           <input
             type="number"
