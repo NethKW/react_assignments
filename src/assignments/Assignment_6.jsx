@@ -15,7 +15,7 @@ const ColorButton = styled(Button)({
   });
 
   const DeleteButton = styled(Button)({
-    backgroundColor: "#8787872b",
+    backgroundColor: "#bcbcbc2b",
     "&:hover": {
       backgroundColor: "#3d4c58ff",
     },
@@ -94,6 +94,7 @@ function Assignment_6() {
               <DeleteButton
                 variant="outlined"
                 size="small"
+                color="black"
                 onClick={() => handleDelete(index)}
               >
                 Delete
