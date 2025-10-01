@@ -23,16 +23,16 @@ const ColorButton = styled(Button)({
 
 function Assignment_6() {
   const [style, setStyle] = useState([]);
-  const [ruleName, setRuleName] = useState("");
-  const [ruleValue, setRuleValue] = useState("");
+  const [cssProperty, setCssProperty] = useState("");
+  const [cssValue, setCssValue] = useState("");
 
   
 
   const handleAdd = () => {
-    if (ruleName.trim() !== "" && ruleValue.trim() !== "") {
-      setStyle([...style, { name: ruleName, value: ruleValue }]);
-      setRuleName("");
-      setRuleValue("");
+    if (cssProperty.trim() !== "" && cssValue.trim() !== "") {
+      setStyle([...style, { name: cssProperty, value: cssValue }]);
+      setCssProperty("");
+      setCssValue("");
     }
   };
 
@@ -61,16 +61,22 @@ function Assignment_6() {
       sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
       noValidate
       autoComplete="off"
+      value={cssProperty}
+      onChange={(e) => setCssProperty(e.target.value)}
     >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="css_property" label="CSS Property" variant="outlined"  
+      placeholder="Enter CSS property" />
       </Box>
       <Box
       component="form"
       sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
       noValidate
       autoComplete="off"
+      value={cssValue}
+      onChange={(e) => setCssValue(e.target.value)}
     >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="css_value" label="CSS Value" variant="outlined"
+      placeholder="Enter CSS value" />
       </Box>
 
           <ColorButton onClick={handleAdd} variant="contained">

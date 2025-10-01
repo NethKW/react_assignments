@@ -1,0 +1,47 @@
+.main.asg-6 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #284B6Cff, rgb(98, 123, 132));
+  color: white;
+  padding: 20px;
+}
+
+.asg-6 input::placeholder {
+  color: black;
+}
+
+.asg-6 .box {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border: 2px solid #284B6C;
+  border-radius: 5px;
+  padding: 40px;
+}
+
+.asg-6 .list {
+  padding: 10px;
+  margin-bottom: 20px;
+  color: rgb(2, 32, 49);
+  font-size: large;
+}
+
+.asg-6 .list li {
+  margin: 5px 0;
+  gap: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.asg-6 .sample-text {
+  padding: 20px;
+  border: 1px solid white;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
