@@ -4,23 +4,23 @@ import { styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
+const ColorButton = styled(Button)({
+  backgroundColor: "#0E2148",
+  "&:hover": {
+    backgroundColor: "#1f5b8dff",
+  },
+});
+
+const MoveButton = styled(Button)({
+  backgroundColor: "#8787872b",
+  "&:hover": {
+    backgroundColor: "#3d4c58ff",
+  },
+});
+
 function Assignment_5() {
   const [numbers, setNumbers] = useState([]);
   const [inputValue, setInputValue] = useState("");
-
-  const ColorButton = styled(Button)({
-    backgroundColor: "#0E2148",
-    "&:hover": {
-      backgroundColor: "#1f5b8dff",
-    },
-  });
-
-  const MoveButton = styled(Button)({
-    backgroundColor: "#8787872b",
-    "&:hover": {
-      backgroundColor: "#3d4c58ff",
-    },
-  });
 
   const handleAdd = () => {
     const num = parseFloat(inputValue);
@@ -45,16 +45,16 @@ function Assignment_5() {
   const handleMoveUp = (index) => {
     if (index === 0) return;
     const newArr = [...numbers];
-    const [item] = newArr.splice(index, 1);       
-    newArr.splice(index - 1, 0, item);           
+    const [item] = newArr.splice(index, 1);
+    newArr.splice(index - 1, 0, item);
     setNumbers(newArr);
   };
 
   const handleMoveDown = (index) => {
     if (index === numbers.length - 1) return;
     const newArr = [...numbers];
-    const [item] = newArr.splice(index, 1);       
-    newArr.splice(index + 1, 0, item);           
+    const [item] = newArr.splice(index, 1);
+    newArr.splice(index + 1, 0, item);
     setNumbers(newArr);
   };
 
@@ -63,7 +63,7 @@ function Assignment_5() {
       <h1>Assignment #5</h1>
 
       <div className="box">
-        
+
         <Stack direction="row" spacing={2} alignItems="center" marginBottom={2}>
           <ColorButton onClick={handleSortAsc} variant="contained">
             Sort Ascending
@@ -73,7 +73,7 @@ function Assignment_5() {
           </ColorButton>
         </Stack>
 
-        
+
         <ol className="list">
           {numbers.map((num, index) => (
             <li key={index}>
@@ -88,7 +88,7 @@ function Assignment_5() {
                 >
                   Move Up
                 </MoveButton>
-                <MoveButton 
+                <MoveButton
                   variant="outlined"
                   color="blue"
                   size="small"
@@ -110,7 +110,7 @@ function Assignment_5() {
           ))}
         </ol>
 
-        
+
         <Stack direction="row" spacing={2} alignItems="center">
           <input
             type="number"
