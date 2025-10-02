@@ -1,9 +1,9 @@
 import "./Assignment_6.css";
 import React, { useState } from "react";
-import { styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from '@mui/material/Box';
+import { styled } from "@mui/material";
 import TextField from '@mui/material/TextField';
 
 
@@ -21,7 +21,25 @@ const DeleteButton = styled(Button)({
   },
 });
 
-
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#020e1aff',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#020e1aff',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#020e1aff',
+    },
+    '&:hover fieldset': {
+      borderColor: '#020e1aff',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#020e1aff',
+    },
+  },
+});
 
 function Assignment_6() {
   const [style, setStyle] = useState([]);
