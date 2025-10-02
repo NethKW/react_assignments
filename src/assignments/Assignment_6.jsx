@@ -21,6 +21,8 @@ const DeleteButton = styled(Button)({
   },
 });
 
+
+
 function Assignment_6() {
   const [style, setStyle] = useState([]);
   const [cssProperty, setCssProperty] = useState("");
@@ -62,7 +64,7 @@ function Assignment_6() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="css_property" label="CSS Property" variant="outlined"
+            <CssTextField id="css_property" label="CSS Property" variant="outlined"
               placeholder="Enter CSS property"
               value={cssProperty}
               onChange={(e) => setCssProperty(e.target.value)} />
@@ -73,7 +75,7 @@ function Assignment_6() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="css_value" label="CSS Value" variant="outlined"
+            <CssTextField id="css_value" label="CSS Value" variant="outlined"
               placeholder="Enter CSS value"
               value={cssValue}
               onChange={(e) => setCssValue(e.target.value)} />
