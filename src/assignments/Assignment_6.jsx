@@ -8,25 +8,25 @@ import TextField from '@mui/material/TextField';
 
 
 const ColorButton = styled(Button)({
-    backgroundColor: "#0E2148",
-    "&:hover": {
-      backgroundColor: "#1f5b8dff",
-    },
-  });
+  backgroundColor: "#0E2148",
+  "&:hover": {
+    backgroundColor: "#1f5b8dff",
+  },
+});
 
-  const DeleteButton = styled(Button)({
-    backgroundColor: "#bcbcbc2b",
-    "&:hover": {
-      backgroundColor: "#3d4c58ff",
-    },
-  });
+const DeleteButton = styled(Button)({
+  backgroundColor: "#bcbcbc2b",
+  "&:hover": {
+    backgroundColor: "#3d4c58ff",
+  },
+});
 
 function Assignment_6() {
   const [style, setStyle] = useState([]);
   const [cssProperty, setCssProperty] = useState("");
   const [cssValue, setCssValue] = useState("");
 
-  
+
 
   const handleAdd = () => {
     if (cssProperty.trim() !== "" && cssValue.trim() !== "") {
@@ -52,39 +52,40 @@ function Assignment_6() {
 
       <div className="box">
 
-        
+
 
         <Stack direction="row" spacing={2} alignItems="center" marginBottom={2}>
-          
+
           <Box
-      component="form"
-      sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
-      noValidate
-      autoComplete="off"
-      value={cssProperty}
-      onChange={(e) => setCssProperty(e.target.value)}
-    >
-      <TextField id="css_property" label="CSS Property" variant="outlined"  
-      placeholder="Enter CSS property" />
-      </Box>
-      <Box
-      component="form"
-      sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
-      noValidate
-      autoComplete="off"
-      value={cssValue}
-      onChange={(e) => setCssValue(e.target.value)}
-    >
-      <TextField id="css_value" label="CSS Value" variant="outlined"
-      placeholder="Enter CSS value" />
-      </Box>
+            component="form"
+            sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="css_property" label="CSS Property" variant="outlined"
+              placeholder="Enter CSS property"
+              value={cssProperty}
+              onChange={(e) => setCssProperty(e.target.value)} />
+          </Box>
+          <Box
+            component="form"
+            sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="css_value" label="CSS Value" variant="outlined"
+              placeholder="Enter CSS value"
+              value={cssValue}
+              onChange={(e) => setCssValue(e.target.value)} />
+          </Box>
 
           <ColorButton onClick={handleAdd} variant="contained">
             Add
           </ColorButton>
+
         </Stack>
 
-      
+
         <ol className="list">
           {style.map((rule, index) => (
             <li key={index}>
@@ -103,7 +104,7 @@ function Assignment_6() {
           ))}
         </ol>
 
-        
+
         <div className="sample-text" style={cssObject}>
           Sample Text
         </div>
