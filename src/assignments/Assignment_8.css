@@ -1,0 +1,41 @@
+.main.asg-8 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  padding: 20px;
+}
+
+.asg-8 .box {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border: 2px solid #284B6C;
+  border-radius: 5px;
+  padding: 40px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.asg-8 .search-box {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.asg-8 .search-box input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 16px;
+}
+
+.asg-8 .color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
