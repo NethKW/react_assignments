@@ -22,16 +22,8 @@
 
 .asg-8 .search-box {
   display: flex;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.asg-8 .search-box input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 250px;
-  font-size: 16px;
+  gap: 20px;
+  align-items: center;
 }
 
 .asg-8 .color-grid {
