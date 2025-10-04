@@ -1,0 +1,38 @@
+.main.asg-10 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  padding: 20px;
+}
+
+.asg-10 .login {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border: 2px solid #284B6C;
+  border-radius: 5px;
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.asg-10 .response {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+}
+.asg-10 .response pre {
+  white-space: pre-wrap;   
+}
+
+.asg-10 form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
