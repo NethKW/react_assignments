@@ -18,7 +18,8 @@ function App() {
         <Link to="/ASG-08" className="alink">Assignment 8</Link>
         <Link to="/ASG-09" className="alink">Assignment 9</Link>
         <Link to="/ASG-10" className="alink">Assignment 10</Link>
-        
+        <Link to="/ASG-11" className="alink">Assignment 11</Link>
+        <Link to="/ASG-12" className="alink">Assignment 12</Link>
         
       </div>
     </div>
