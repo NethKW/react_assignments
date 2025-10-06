@@ -1,0 +1,75 @@
+.main.asg-12 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  padding: 20px;
+}
+
+.asg-12 .login {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border: 2px solid #284B6C;
+  border-radius: 5px;
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.asg-12 .response {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+  color: #1a1a1a;
+  width: 350px;
+  text-align: center;
+}
+
+.asg-12 .profile h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #0E2148;
+  border-bottom: 2px solid #284B6C;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.asg-12 .pDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.asg-12 .pPic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000000;
+}
+
+.asg-12 .pName {
+  font-size: 20px;
+  font-weight: bold;
+  color: #122c44;
+}
+
+.asg-12 .pBio {
+  font-size: 15px;
+  color: #333;
+  font-style: italic;
+  line-height: 1.4;
+  max-width: 280px;
+}
+
+.asg-12 form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
