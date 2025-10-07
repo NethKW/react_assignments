@@ -7,18 +7,30 @@ import { styled } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 const CssTextField = styled(TextField)({
-  '& label.Mui-focused': { color: '#020e1aff' },
-  '& .MuiInput-underline:after': { borderBottomColor: '#020e1aff' },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': { borderColor: '#020e1aff' },
-    '&:hover fieldset': { borderColor: '#020e1aff' },
-    '&.Mui-focused fieldset': { borderColor: '#020e1aff' },
+  "& label.Mui-focused": {
+    color: "#020e1aff",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#020e1aff",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#020e1aff",
+    },
+    "&:hover fieldset": {
+      borderColor: "#020e1aff",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#020e1aff",
+    },
   },
 });
 
 const LoginButton = styled(Button)({
   backgroundColor: "#0E2148",
-  "&:hover": { backgroundColor: "#1f5b8dff" },
+  "&:hover": {
+    backgroundColor: "#1f5b8dff",
+  },
 });
 
 function Assignment_11() {
@@ -34,7 +46,8 @@ function Assignment_11() {
     setError("");
     setUserDetails(null);
 
-    axios.post("https://auth.dnjs.lk/api/login", { email, password })
+    axios
+      .post("https://auth.dnjs.lk/api/login", { email, password })
       .then((res) => {
         console.log("Login Response:", res.data);
         const accessToken = res.data.access_token;
@@ -48,9 +61,10 @@ function Assignment_11() {
   };
 
   const fetchUserDetails = (token) => {
-    axios.get("https://auth.dnjs.lk/api/user", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    axios
+      .get("https://auth.dnjs.lk/api/user", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         console.log("User Details:", res.data);
         setUserDetails(res.data);
@@ -64,13 +78,31 @@ function Assignment_11() {
   return (
     <div className="main asg-11">
       <h1>Assignment #11</h1>
-
       <div className="login">
         {!userDetails ? (
-          <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' } }} noValidate autoComplete="off">
-            <CssTextField label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <CssTextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <LoginButton variant="contained" onClick={login} disabled={isLoading}>
+          <Box
+            component="form"
+            sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
+            noValidate
+            autoComplete="off"
+          >
+            <CssTextField
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <CssTextField
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <LoginButton
+              variant="contained"
+              onClick={login}
+              disabled={isLoading}
+            >
               {isLoading ? "Logging in..." : "Login"}
             </LoginButton>
           </Box>
@@ -79,44 +111,23 @@ function Assignment_11() {
             <div className="profile">
               <h2>Profile</h2>
             </div>
-
             <div className="pDetails">
-              <img
-                src={userDetails.profile_pic || "https://via.placeholder.com/100"}
-                alt="Profile"
-                className="pPic"
-              />
-
-              <input
-                type="file"
-                id="profileUpload"
-                accept="image/*"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    const file = e.target.files[0];
-                    const previewURL = URL.createObjectURL(file);
-                    setUserDetails({ ...userDetails, profile_pic: previewURL });
-                  }
-                }}
-              />
-
-              <label htmlFor="profileUpload">
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  component="span"
-                >
-                  Change Picture
-                </Button>
-              </label>
-              <h3 className="pName">Welcome, {userDetails.name}!</h3>
-              <p className="pBio">{userDetails.bio || "No bio available."}</p>
+              {userDetails.avatar  && (
+                <img
+                  src={userDetails.avatar}
+                  alt="Profile"
+                  className="pPic"
+                />
+              )}
+              <h3 className="pName">
+                Welcome, {userDetails.name}!
+              </h3>
+              <p className="pBio">
+                {userDetails.bio || "No bio available."}
+              </p>
             </div>
           </Box>
-
         )}
-
         {error && <p color="error">{error}</p>}
       </div>
     </div>
