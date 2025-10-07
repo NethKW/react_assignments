@@ -112,7 +112,7 @@ function Assignment_11() {
               <h2>Profile</h2>
             </div>
             <div className="pDetails">
-              {userDetails.avatar  && (
+              {userDetails.avatar && (
                 <img
                   src={userDetails.avatar}
                   alt="Profile"

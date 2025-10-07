@@ -141,35 +141,13 @@ function Assignment_12() {
 
 
             <div className="pDetails">
-              <img
-                src={userDetails.profile_pic || "https://via.placeholder.com/100"}
-                alt="Profile"
-                className="pPic"
-              />
-
-              <input
-                type="file"
-                id="profileUpload"
-                accept="image/*"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  if (e.target.files && e.target.files[0]) {
-                    const file = e.target.files[0];
-                    const previewURL = URL.createObjectURL(file);
-                    setUserDetails({ ...userDetails, profile_pic: previewURL });
-                  }
-                }}
-              />
-
-              <label htmlFor="profileUpload">
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  component="span"
-                >
-                  Change Picture
-                </Button>
-              </label>
+              {userDetails.avatar && (
+                <img
+                  src={userDetails.avatar}
+                  alt="Profile"
+                  className="pPic"
+                />
+              )}
               <h3 className="pName">Welcome, {userDetails.name}!</h3>
               <p className="pBio">{userDetails.bio || "No bio available."}</p>
 
