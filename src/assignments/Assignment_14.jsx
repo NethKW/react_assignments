@@ -124,7 +124,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
     try {
       const res = await axios.put(
-        "https://auth.dnjs.lk/api/user", 
+        "https://auth.dnjs.lk/api/user",
         { name: name, bio: bio },
         { headers: { Authorization: `Bearer ${token}` } }
       );
