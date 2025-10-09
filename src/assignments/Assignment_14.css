@@ -44,7 +44,7 @@
   gap: 12px;
 }
 
-.asg-14 .profile-info{
+.asg-14 .profile-info {
   background: rgba(23, 143, 162, 0.247);
   padding: 0px 50px;
   border-radius: 20px;
@@ -73,14 +73,14 @@
   max-width: 280px;
 }
 
-.asg-14 .function-buttons{
+.asg-14 .function-buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
 }
 
-.asg-14 .function-buttons Button{
+.asg-14 .function-buttons Button {
   width: 80px;
 }
 

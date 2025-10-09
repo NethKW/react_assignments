@@ -30,6 +30,7 @@ const UploadButton = styled(Button)({
   "&:hover": { backgroundColor: "#1373abff" },
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 function LoginScreen({ setLogged, setUserDetails }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -115,6 +116,7 @@ function LoginScreen({ setLogged, setUserDetails }) {
 }
 
 
+// eslint-disable-next-line react-refresh/only-export-components
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
   const [name, setName] = useState(userDetails.name || "");
@@ -125,7 +127,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const token =
     localStorage.getItem("access_token") ||
     sessionStorage.getItem("access_token");
-  
+
   useEffect(() => {
     setName(userDetails.name || "");
     setBio(userDetails.description || "");
@@ -212,7 +214,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
           <h3 className="pName">Welcome, {userDetails.name}!</h3>
           <p className="pBio">{userDetails.description || "No bio available."}</p>
         </div>
-          
+
         {userDetails.avatar && (
           <img
             src={userDetails.avatar}

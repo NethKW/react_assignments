@@ -116,9 +116,9 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
-      setName(userDetails.name || "");
-      setBio(userDetails.description || "");
-    }, [userDetails]);
+    setName(userDetails.name || "");
+    setBio(userDetails.description || "");
+  }, [userDetails]);
 
   const saveProfile = async () => {
     setIsUpdating(true);
@@ -133,7 +133,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
         { name: name, bio: bio },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      
+
       setUserDetails(res.data);
       alert("Profile updated successfully!");
     } catch (err) {
@@ -199,20 +199,20 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
         <div className="function-buttons">
           <Button
-          variant="contained"
-          color="primary"
-          onClick={saveProfile}
-          disabled={isUpdating}
-        >
-          {isUpdating ? "Saving..." : "Save"}
-        </Button>
+            variant="contained"
+            color="primary"
+            onClick={saveProfile}
+            disabled={isUpdating}
+          >
+            {isUpdating ? "Saving..." : "Save"}
+          </Button>
 
-        <Button variant="contained" color="primary" onClick={logout}>
-          Logout
-        </Button>
+          <Button variant="contained" color="primary" onClick={logout}>
+            Logout
+          </Button>
         </div>
 
-        
+
 
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
