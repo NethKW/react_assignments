@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": { color: "#020e1aff" },
@@ -24,24 +24,12 @@ const LoginButton = styled(Button)({
   "&:hover": { backgroundColor: "#1f5b8dff" },
 });
 
-const VisuallyHiddenInput = styled('input')({
-  clip: 'rect(0 0 0 0)',
-  clipPath: 'inset(50%)',
-  height: 1,
-  overflow: 'hidden',
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  whiteSpace: 'nowrap',
-  width: 1,
-});
-
 const UploadButton = styled(Button)({
-  backgroundColor: "#0E2148",
-  "&:hover": { backgroundColor: "#1f5b8dff" },
+  backgroundColor: "#107ab8ff",
+  color: "white",
+  "&:hover": { backgroundColor: "#1373abff" },
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
 function LoginScreen({ setLogged, setUserDetails }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -126,7 +114,7 @@ function LoginScreen({ setLogged, setUserDetails }) {
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
   const [name, setName] = useState(userDetails.name || "");
@@ -135,8 +123,13 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [isUpdating, setIsUpdating] = useState(false);
 
   const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
+    localStorage.getItem("access_token") ||
+    sessionStorage.getItem("access_token");
+  
+  useEffect(() => {
+    setName(userDetails.name || "");
+    setBio(userDetails.description || "");
+  }, [userDetails]);
 
   const saveProfile = async () => {
     setIsUpdating(true);
@@ -159,26 +152,31 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   };
 
   const uploadImage = async () => {
-    if(!avatarFile) return alert('Please select an image first.');
+    if (!avatarFile) return alert('Please select an image first.');
 
     const formData = new FormData();
     formData.append('avatar', avatarFile);
 
     try {
-        const res = await axios.post(
-            'https://auth.dnjs.lk/api/avatar',
-            formData,{
-                headers: {
-                    Authorization:`Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data',
-                },
-            }
-        );
-        setUserDetails(res.data);
-        alert('Avatar updated successfully!');
+      await axios.post(
+        'https://auth.dnjs.lk/api/avatar',
+        formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+      );
+
+      const updatedUser = await axios.get("https://auth.dnjs.lk/api/user", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      setUserDetails(updatedUser.data);
+      alert('Avatar updated successfully!');
     } catch (err) {
-        console.error('Avatar Upload Error:', err.response?.data || err.message);
-        setError('Failed to upload avatar.');
+      console.error('Avatar Upload Error:', err.response?.data || err.message);
+      setError('Failed to upload avatar.');
     }
   };
 
@@ -210,6 +208,11 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       </div>
 
       <div className="pDetails">
+        <div className="profile-info">
+          <h3 className="pName">Welcome, {userDetails.name}!</h3>
+          <p className="pBio">{userDetails.description || "No bio available."}</p>
+        </div>
+          
         {userDetails.avatar && (
           <img
             src={userDetails.avatar}
@@ -238,36 +241,17 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
           {isUpdating ? "Saving..." : "Save"}
         </Button>
 
-        <Button
-      component="label"
-      role={uploadImage}
-      variant="contained"
-      tabIndex={-1}
-      startIcon={<CloudUploadIcon />}
-    >
-      Upload files
-      <VisuallyHiddenInput
-        type="file"
-        accept="image/*"
-        onChange={(e) => {
-            setAvatarFile(e.target.files[0]);
-            uploadImage();}}
-        multiple
-        
-      />
-    </Button>
+        <div className="upload-section">
+          <input
+            type="file"
+            accept="image/*"
+            className="upload"
+            onChange={(e) => setAvatarFile(e.target.files[0])}
+          />
+          <UploadButton onClick={uploadImage}>Upload Avatar</UploadButton>
+        </div>
 
-        {/* <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setAvatarFile(e.target.files[0])}
-        />
-        <UploadButton onClick={uploadImage}>Upload Avatar</UploadButton> */}
-
-        <h3 className="pName">Welcome, {userDetails.name}!</h3>
-        <p className="pBio">{userDetails.description || "No bio available."}</p>
-
-        <Button variant="contained" color="secondary" onClick={logout}>
+        <Button className="" variant="contained" color="primary" onClick={logout}>
           Logout
         </Button>
 
@@ -301,7 +285,7 @@ function Assignment_15() {
 
   return (
     <div className="main asg-15">
-      <h1>Assignment #14</h1>
+      <h1>Assignment #15</h1>
       <div className="login">
         {!logged ? (
           <LoginScreen setLogged={setLogged} setUserDetails={setUserDetails} />

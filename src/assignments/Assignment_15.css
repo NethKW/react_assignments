@@ -20,12 +20,11 @@
 }
 
 .asg-15 .response {
-  margin-top: 20px;
   background: rgba(255, 255, 255, 0.85);
-  padding: 30px;
+  padding: 40px;
   border-radius: 12px;
   color: #1a1a1a;
-  width: 350px;
+  width: 400px;
   text-align: center;
 }
 
@@ -45,6 +44,13 @@
   gap: 12px;
 }
 
+.asg-15 .profile-info{
+  background: rgba(23, 143, 162, 0.247);
+  padding: 0px 50px;
+  border-radius: 20px;
+}
+
+
 .asg-15 .pPic {
   width: 100px;
   height: 100px;
@@ -54,18 +60,38 @@
 }
 
 .asg-15 .pName {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #122c44;
 }
 
 .asg-15 .pBio {
   font-size: 15px;
-  color: #333;
+  color: #122c44;
   font-style: italic;
-  line-height: 1.4;
+  /* line-height: 1.4; */
   max-width: 280px;
 }
+
+.asg-15 .upload-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #107ab8ff;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.asg-15 .upload {
+  padding: 2px;
+  cursor: pointer;
+  color: #0E2148;
+  width: 190px;
+
+}
+
+
 
 .asg-15 form {
   display: flex;
