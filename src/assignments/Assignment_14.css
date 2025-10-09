@@ -20,7 +20,6 @@
 }
 
 .asg-14 .response {
-  margin-top: 20px;
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;
   border-radius: 12px;
@@ -45,6 +44,13 @@
   gap: 12px;
 }
 
+.asg-14 .profile-info{
+  background: rgba(23, 143, 162, 0.247);
+  padding: 0px 50px;
+  border-radius: 20px;
+}
+
+
 .asg-14 .pPic {
   width: 100px;
   height: 100px;
@@ -65,6 +71,17 @@
   font-style: italic;
   line-height: 1.4;
   max-width: 280px;
+}
+
+.asg-14 .function-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.asg-14 .function-buttons Button{
+  width: 80px;
 }
 
 .asg-14 form {

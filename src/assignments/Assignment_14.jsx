@@ -115,6 +115,11 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [bio, setBio] = useState(userDetails.bio || "");
   const [isUpdating, setIsUpdating] = useState(false);
 
+  useEffect(() => {
+      setName(userDetails.name || "");
+      setBio(userDetails.description || "");
+    }, [userDetails]);
+
   const saveProfile = async () => {
     setIsUpdating(true);
     setError("");
@@ -128,6 +133,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
         { name: name, bio: bio },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      
       setUserDetails(res.data);
       alert("Profile updated successfully!");
     } catch (err) {
@@ -166,6 +172,12 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       </div>
 
       <div className="pDetails">
+
+        <div className="profile-info">
+          <h3 className="pName">Welcome, {userDetails.name}!</h3>
+          <p className="pBio">{userDetails.description || "No bio available."}</p>
+        </div>
+
         {userDetails.avatar && (
           <img
             src={userDetails.avatar}
@@ -185,7 +197,8 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
           onChange={(e) => setBio(e.target.value)}
         />
 
-        <Button
+        <div className="function-buttons">
+          <Button
           variant="contained"
           color="primary"
           onClick={saveProfile}
@@ -194,12 +207,12 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
           {isUpdating ? "Saving..." : "Save"}
         </Button>
 
-        <h3 className="pName">Welcome, {userDetails.name}!</h3>
-        <p className="pBio">{userDetails.bio || "No bio available."}</p>
-
-        <Button variant="contained" color="secondary" onClick={logout}>
+        <Button variant="contained" color="primary" onClick={logout}>
           Logout
         </Button>
+        </div>
+
+        
 
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
