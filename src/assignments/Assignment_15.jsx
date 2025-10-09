@@ -210,10 +210,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       </div>
 
       <div className="pDetails">
-        <div className="profile-info">
-          <h3 className="pName">Welcome, {userDetails.name}!</h3>
-          <p className="pBio">{userDetails.description || "No bio available."}</p>
-        </div>
+
 
         {userDetails.avatar && (
           <img
@@ -222,6 +219,11 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
             className="pPic"
           />
         )}
+
+        <div className="profile-info">
+          <h3 className="pName">Welcome, {userDetails.name}!</h3>
+          <p className="pBio">{userDetails.description || "No bio available."}</p>
+        </div>
 
         <CssTextField
           label="Name"
