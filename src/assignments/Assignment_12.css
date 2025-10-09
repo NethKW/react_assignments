@@ -45,6 +45,13 @@
   gap: 12px;
 }
 
+.asg-12 .profile-info{
+  background: rgba(23, 143, 162, 0.247);
+  padding: 0px 50px;
+  border-radius: 20px;
+}
+
+
 .asg-12 .pPic {
   width: 100px;
   height: 100px;

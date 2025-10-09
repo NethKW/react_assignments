@@ -141,6 +141,12 @@ function Assignment_12() {
 
 
             <div className="pDetails">
+
+              <div className="profile-info">
+                <h3 className="pName">Welcome, {userDetails.name}!</h3>
+                <p className="pBio">{userDetails.description || "No bio available."}</p>
+              </div>
+
               {userDetails.avatar && (
                 <img
                   src={userDetails.avatar}
@@ -148,10 +154,8 @@ function Assignment_12() {
                   className="pPic"
                 />
               )}
-              <h3 className="pName">Welcome, {userDetails.name}!</h3>
-              <p className="pBio">{userDetails.bio || "No bio available."}</p>
 
-              <Button variant="contained" color="secondary" onClick={logout}>
+              <Button variant="contained" color="primary" onClick={logout}>
                 Logout
               </Button>
             </div>
