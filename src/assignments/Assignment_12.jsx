@@ -63,7 +63,7 @@ function Assignment_12() {
       })
       .catch((err) => {
         console.error("Login Error:", err.response?.data || err.message);
-        setError(err.response?.data?.message || "Login Failed. Try again.");
+        setError(err.response?.data?.error.message);
       })
       .finally(() => setIsLoading(false));
   };
@@ -152,7 +152,7 @@ function Assignment_12() {
 
               <div className="profile-info">
                 <h3 className="pName">Welcome, {userDetails.name}!</h3>
-                <p className="pBio">{userDetails.description || "No bio available."}</p>
+                <p className="pBio">{userDetails.description || "No description available."}</p>
               </div>
 
               <Button variant="contained" color="primary" onClick={logout}>

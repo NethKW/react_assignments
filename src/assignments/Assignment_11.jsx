@@ -55,7 +55,7 @@ function Assignment_11() {
       })
       .catch((err) => {
         console.error("Login Error:", err.response?.data || err.message);
-        setError(err.response?.data?.message || "Login Failed. Try again.");
+        setError(err.response?.data?.error.message || "Login Failed. Try again.");
       })
       .finally(() => setIsLoading(false));
   };
@@ -123,7 +123,7 @@ function Assignment_11() {
                 Welcome, {userDetails.name}!
               </h3>
               <p className="pBio">
-                {userDetails.bio || "No bio available."}
+                {userDetails.description || "No description available."}
               </p>
             </div>
           </Box>

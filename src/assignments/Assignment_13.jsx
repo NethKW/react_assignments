@@ -60,7 +60,7 @@ function LoginScreen({ setLogged, setUserDetails }) {
         }
       })
       .catch((err) => {
-        setError(err.response?.data?.message || "Login failed. Try again.");
+        setError(err.response?.data.error.message || "Login failed. Try again.");
       })
       .finally(() => setIsLoading(false));
   };
@@ -112,8 +112,11 @@ function LoginScreen({ setLogged, setUserDetails }) {
 // eslint-disable-next-line react-refresh/only-export-components
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
-
+  const [isLoading, setIsLoading] = useState(false);
+  
   const logout = async () => {
+    setIsLoading(true); 
+    setError("");
     const token =
       localStorage.getItem("access_token") ||
       sessionStorage.getItem("access_token");
@@ -133,9 +136,10 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
     localStorage.removeItem("access_token");
     sessionStorage.removeItem("access_token");
-
+    
     setUserDetails(null);
     setLogged(false);
+    setIsLoading(false);
   };
 
   return (
@@ -145,8 +149,6 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       </div>
 
       <div className="pDetails">
-
-
 
         {userDetails.avatar && (
           <img
@@ -158,11 +160,11 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
         <div className="profile-info">
           <h3 className="pName">Welcome, {userDetails.name}!</h3>
-          <p className="pBio">{userDetails.description || "No bio available."}</p>
+          <p className="pBio">{userDetails.description || "No description available."}</p>
         </div>
 
-        <Button variant="contained" color="primary" onClick={logout}>
-          Logout
+        <Button variant="contained" color="primary" onClick={logout} disabled={isLoading}>
+          {isLoading ? "Logging out..." : "Logout"}
         </Button>
 
         {error && <p style={{ color: "red" }}>{error}</p>}

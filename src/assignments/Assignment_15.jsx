@@ -30,6 +30,13 @@ const UploadButton = styled(Button)({
   "&:hover": { backgroundColor: "#1373abff" },
 });
 
+const accessToken = () => {
+  return localStorage.getItem("access_token") ||
+    sessionStorage.getItem("access_token");
+}
+
+
+
 // eslint-disable-next-line react-refresh/only-export-components
 function LoginScreen({ setLogged, setUserDetails }) {
   const [email, setEmail] = useState("");
@@ -120,18 +127,16 @@ function LoginScreen({ setLogged, setUserDetails }) {
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
   const [name, setName] = useState(userDetails.name || "");
-  const [bio, setBio] = useState(userDetails.bio || "");
+  const [description, setDescription] = useState(userDetails.description || "");
   const [avatarFile, setAvatarFile] = useState(null);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
-  const token =
-    localStorage.getItem("access_token") ||
-    sessionStorage.getItem("access_token");
-
-  useEffect(() => {
-    setName(userDetails.name || "");
-    setBio(userDetails.description || "");
-  }, [userDetails]);
+  // useEffect(() => {
+  //   setName(userDetails.name || "");
+  //   setDescription(userDetails.description || "");
+  // }, [userDetails]);
 
   const saveProfile = async () => {
     setIsUpdating(true);
@@ -140,8 +145,8 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
     try {
       const res = await axios.put(
         "https://auth.dnjs.lk/api/user",
-        { name: name, description: bio },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { name: name, description: description },
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
       );
       setUserDetails(res.data);
       alert("Profile updated successfully!");
@@ -154,44 +159,45 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   };
 
   const uploadImage = async () => {
+
     if (!avatarFile) return alert('Please select an image first.');
+    setIsUploading(true);
+    setError("");
 
     const formData = new FormData();
     formData.append('avatar', avatarFile);
 
     try {
-      await axios.post(
+      const res = await axios.post(
         'https://auth.dnjs.lk/api/avatar',
         formData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken()}`,
           'Content-Type': 'multipart/form-data',
         },
       }
       );
 
-      const updatedUser = await axios.get("https://auth.dnjs.lk/api/user", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      setUserDetails(updatedUser.data);
+      setUserDetails({ ...userDetails, avatar: res.data.avatar });
       alert('Avatar updated successfully!');
     } catch (err) {
       console.error('Avatar Upload Error:', err.response?.data || err.message);
-      setError('Failed to upload avatar.');
+      setError(err.response?.data.error.message || 'Failed to upload avatar.');
+    }
+    finally {
+      setIsUploading(false);
     }
   };
 
   const logout = async () => {
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
+    setIsLoading(true);
+    setError("");
 
     try {
       await axios.post(
         "https://auth.dnjs.lk/api/logout",
         {},
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
       );
     } catch (err) {
       console.error("Logout Error:", err.response?.data || err.message);
@@ -201,6 +207,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
     sessionStorage.removeItem("access_token");
     setUserDetails(null);
     setLogged(false);
+    setIsLoading(false);
   };
 
   return (
@@ -222,7 +229,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
         <div className="profile-info">
           <h3 className="pName">Welcome, {userDetails.name}!</h3>
-          <p className="pBio">{userDetails.description || "No bio available."}</p>
+          <p className="pBio">{userDetails.description || "No description available."}</p>
         </div>
 
         <CssTextField
@@ -232,8 +239,8 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
         />
         <CssTextField
           label="Description"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <Button
@@ -252,11 +259,11 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
             className="upload"
             onChange={(e) => setAvatarFile(e.target.files[0])}
           />
-          <UploadButton onClick={uploadImage}>Upload Avatar</UploadButton>
+          <UploadButton onClick={uploadImage} disabled={isUploading}>{isUploading ? "Uploading..." : "Upload Avatar"}</UploadButton>
         </div>
 
-        <Button className="" variant="contained" color="primary" onClick={logout}>
-          Logout
+        <Button className="" variant="contained" color="primary" onClick={logout} disabled={isLoading}>
+          {isLoading ? "Logging out..." : "Logout"}
         </Button>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -270,14 +277,11 @@ function Assignment_15() {
   const [userDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
 
-    if (token) {
+    if (accessToken()) {
       axios
         .get("https://auth.dnjs.lk/api/user", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${accessToken()}` },
         })
         .then((res) => {
           setUserDetails(res.data);

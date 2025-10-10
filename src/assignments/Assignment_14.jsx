@@ -23,6 +23,10 @@ const LoginButton = styled(Button)({
   "&:hover": { backgroundColor: "#1f5b8dff" },
 });
 
+const accessToken = () =>
+  localStorage.getItem("access_token") ||
+  sessionStorage.getItem("access_token");
+
 // eslint-disable-next-line react-refresh/only-export-components
 function LoginScreen({ setLogged, setUserDetails }) {
   const [email, setEmail] = useState("");
@@ -59,7 +63,7 @@ function LoginScreen({ setLogged, setUserDetails }) {
         }
       })
       .catch((err) => {
-        setError(err.response?.data?.message || "Login failed. Try again.");
+        setError(err.response?.data?.error.message || "Login failed. Try again.");
       })
       .finally(() => setIsLoading(false));
   };
@@ -111,27 +115,25 @@ function LoginScreen({ setLogged, setUserDetails }) {
 // eslint-disable-next-line react-refresh/only-export-components
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState(userDetails.name || "");
-  const [bio, setBio] = useState(userDetails.bio || "");
+  const [description, setDescription] = useState(userDetails.description || "");
   const [isUpdating, setIsUpdating] = useState(false);
 
-  useEffect(() => {
-    setName(userDetails.name || "");
-    setBio(userDetails.description || "");
-  }, [userDetails]);
+  // useEffect(() => {
+  //   setName(userDetails.name || "");
+  //   setDescription(userDetails.description || "");
+  // }, [userDetails]);
 
   const saveProfile = async () => {
     setIsUpdating(true);
     setError("");
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
 
     try {
       const res = await axios.put(
         "https://auth.dnjs.lk/api/user",
-        { name: name, description: bio },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { name: name, description: description },
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
       );
 
       setUserDetails(res.data);
@@ -145,15 +147,14 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   };
 
   const logout = async () => {
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
+    setIsLoading(true);
+    setError("");
 
     try {
       await axios.post(
         "https://auth.dnjs.lk/api/logout",
         {},
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
       );
     } catch (err) {
       console.error("Logout Error:", err.response?.data || err.message);
@@ -163,6 +164,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
     sessionStorage.removeItem("access_token");
     setUserDetails(null);
     setLogged(false);
+    setIsLoading(false);
   };
 
   return (
@@ -185,7 +187,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
         <div className="profile-info">
           <h3 className="pName">Welcome, {userDetails.name}!</h3>
-          <p className="pBio">{userDetails.description || "No bio available."}</p>
+          <p className="pBio">{userDetails.description || "No description available."}</p>
         </div>
 
         <CssTextField
@@ -195,8 +197,8 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
         />
         <CssTextField
           label="Description"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
 
         <div className="function-buttons">
@@ -209,8 +211,8 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
             {isUpdating ? "Saving..." : "Save"}
           </Button>
 
-          <Button variant="contained" color="primary" onClick={logout}>
-            Logout
+          <Button variant="contained" color="primary" onClick={logout} disabled={isLoading}>
+            {isLoading ? "Logging out..." : "Logout"}
           </Button>
         </div>
 
@@ -227,14 +229,11 @@ function Assignment_14() {
   const [userDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
-    const token =
-      localStorage.getItem("access_token") ||
-      sessionStorage.getItem("access_token");
 
-    if (token) {
+    if (accessToken()) {
       axios
         .get("https://auth.dnjs.lk/api/user", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${accessToken()}` },
         })
         .then((res) => {
           setUserDetails(res.data);
