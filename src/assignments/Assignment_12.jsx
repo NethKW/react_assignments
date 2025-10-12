@@ -23,6 +23,11 @@ const LoginButton = styled(Button)({
   "&:hover": { backgroundColor: "#1f5b8dff" },
 });
 
+const LoadingButton = styled(Button)({
+  backgroundColor: "#e9ecf191",
+  color: "white",
+});
+
 function Assignment_12() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +35,7 @@ function Assignment_12() {
   const [error, setError] = useState("");
   const [userDetails, setUserDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const storedToken =
@@ -38,6 +44,8 @@ function Assignment_12() {
 
     if (storedToken) {
       fetchUserDetails(storedToken);
+    } else {
+      setIsReady(true)
     }
   }, []);
 
@@ -76,6 +84,7 @@ function Assignment_12() {
       .then((res) => {
         console.log("User Details:", res.data);
         setUserDetails(res.data);
+        setIsReady(true);
       })
       .catch((err) => {
         console.error("Fetch User Error:", err.response?.data || err.message);
@@ -88,6 +97,15 @@ function Assignment_12() {
     sessionStorage.removeItem("access_token");
     setUserDetails(null);
   };
+
+  if (!isReady) {
+    return <div className="main asg-12">
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    </div>
+  }
+
 
   return (
     <div className="main asg-12">

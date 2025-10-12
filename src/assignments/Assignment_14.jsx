@@ -227,6 +227,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 function Assignment_14() {
   const [logged, setLogged] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
 
@@ -238,10 +239,21 @@ function Assignment_14() {
         .then((res) => {
           setUserDetails(res.data);
           setLogged(true);
+          setIsReady(true);
         })
         .catch(() => setLogged(false));
     }
   }, []);
+
+  if (!isReady) {
+    return (
+      <div className="main asg-14">
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="main asg-14">

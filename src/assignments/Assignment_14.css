@@ -19,6 +19,19 @@
   margin-top: 20px;
 }
 
+.asg-14 .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+
+}
+
 .asg-14 .response {
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;

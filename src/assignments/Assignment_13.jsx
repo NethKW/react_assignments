@@ -113,9 +113,9 @@ function LoginScreen({ setLogged, setUserDetails }) {
 function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const logout = async () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     setError("");
     const token =
       localStorage.getItem("access_token") ||
@@ -136,11 +136,13 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
     localStorage.removeItem("access_token");
     sessionStorage.removeItem("access_token");
-    
+
     setUserDetails(null);
     setLogged(false);
     setIsLoading(false);
+
   };
+
 
   return (
     <Box className="response">
@@ -176,6 +178,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 function Assignment_13() {
   const [logged, setLogged] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const token =
@@ -190,10 +193,21 @@ function Assignment_13() {
         .then((res) => {
           setUserDetails(res.data);
           setLogged(true);
+          setIsReady(true);
         })
         .catch(() => setLogged(false));
     }
   }, []);
+
+  if (!isReady) {
+    return (
+      <div className="main asg-13">
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="main asg-13">
