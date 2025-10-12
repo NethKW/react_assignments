@@ -196,6 +196,8 @@ function Assignment_13() {
           setIsReady(true);
         })
         .catch(() => setLogged(false));
+    } else {
+      setIsReady(true);
     }
   }, []);
 

@@ -290,6 +290,8 @@ function Assignment_15() {
           setIsReady(true);
         })
         .catch(() => setLogged(false));
+    } else {
+      setIsReady(true);
     }
   }, []);
 
