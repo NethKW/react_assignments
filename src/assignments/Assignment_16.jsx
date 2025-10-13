@@ -1,0 +1,483 @@
+import "./Assignment_16.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { styled } from '@mui/material/styles';
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": { color: "#020e1aff" },
+  "& .MuiInput-underline:after": { borderBottomColor: "#020e1aff" },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": { borderColor: "#020e1aff" },
+    "&:hover fieldset": { borderColor: "#020e1aff" },
+    "&.Mui-focused fieldset": { borderColor: "#020e1aff" },
+  },
+});
+
+const LoginButton = styled(Button)({
+  backgroundColor: "#0E2148",
+  "&:hover": { backgroundColor: "#1f5b8dff" },
+});
+
+const UploadButton = styled(Button)({
+  backgroundColor: "#107ab8ff",
+  color: "white",
+  "&:hover": { backgroundColor: "#1373abff" },
+});
+
+const ProfileDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
+const PasswordDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
+
+const accessToken = () =>
+  localStorage.getItem("access_token") ||
+  sessionStorage.getItem("access_token");
+
+// eslint-disable-next-line react-refresh/only-export-components
+function LoginScreen({ setLogged, setUserDetails }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const login = () => {
+    if (isLoading) return;
+    setIsLoading(true);
+    setError("");
+
+    axios
+      .post("https://auth.dnjs.lk/api/login", { email, password })
+      .then((res) => {
+        const token = res.data.access_token;
+        if (token) {
+          if (keepLoggedIn) {
+            localStorage.setItem("access_token", token);
+          } else {
+            sessionStorage.setItem("access_token", token);
+          }
+
+          axios
+            .get("https://auth.dnjs.lk/api/user", {
+              headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((res) => {
+              setUserDetails(res.data);
+              setLogged(true);
+            })
+            .catch(() => setError("Failed to fetch user details."));
+        }
+      })
+      .catch((err) => {
+        setError(err.response?.data?.error.message || "Login failed. Try again.");
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  return (
+    <Box
+      component="form"
+      sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
+      noValidate
+      autoComplete="off"
+    >
+      <CssTextField
+        label="Email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <CssTextField
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={keepLoggedIn}
+            onChange={(e) => setKeepLoggedIn(e.target.checked)}
+            color="primary"
+          />
+        }
+        label="Keep me logged in"
+      />
+
+      <LoginButton
+        variant="contained"
+        onClick={login}
+        disabled={isLoading}
+      >
+        {isLoading ? "Logging in..." : "Login"}
+      </LoginButton>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </Box>
+  );
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
+  const [error, setError] = useState("");
+  const [avatarFile, setAvatarFile] = useState(null);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [openProfileEdit, setOpenProfileEdit] = useState(false);
+  const [name, setName] = useState(userDetails.name || "");
+  const [description, setDescription] = useState(userDetails.description || "");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [openPasswordDialog, setOpenPasswordDialog] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [reEnterNewPassword, setReEnterNewPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+
+  const saveProfile = async () => {
+    setIsUpdating(true);
+    setError("");
+
+    try {
+      const res = await axios.put(
+        "https://auth.dnjs.lk/api/user",
+        { name: name, description: description },
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
+      );
+      setUserDetails(res.data);
+      alert("Profile updated successfully!");
+      setOpenProfileEdit(false);
+    } catch (err) {
+      console.error("Update Error:", err.response?.data || err.message);
+      setError("Failed to update profile.");
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const uploadImage = async () => {
+    if (!avatarFile) return alert("Please select an image first.");
+    setIsUploading(true);
+    setError("");
+
+    const formData = new FormData();
+    formData.append("avatar", avatarFile);
+
+    try {
+      const res = await axios.post("https://auth.dnjs.lk/api/avatar", formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken()}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      setUserDetails({ ...userDetails, avatar: res.data.avatar });
+      alert("Avatar updated successfully!");
+    } catch (err) {
+      console.error("Avatar Upload Error:", err.response?.data || err.message);
+      setError(err.response?.data.error.message || "Failed to upload avatar.");
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const logout = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await axios.post(
+        "https://auth.dnjs.lk/api/logout",
+        {},
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
+      );
+    } catch (err) {
+      console.error("Logout Error:", err.response?.data || err.message);
+    }
+
+    localStorage.removeItem("access_token");
+    sessionStorage.removeItem("access_token");
+    setUserDetails(null);
+    setLogged(false);
+    setIsLoading(false);
+  };
+
+  const validatePassword = (password) => {
+    const errors = [];
+    const passwordCheck1 = /[0-9]/g;
+    const passwordCheck2 = /[*/\-@#$]/g;
+    const passwordCheck3 = /[a-z]/g;
+    const passwordCheck4 = /[A-Z]/g;
+    if (password.length < 8 || password.length > 40){
+      errors.push("Password must be 8-40 characters.");
+    }
+  
+    if (!passwordCheck1.test(password)) {
+      errors.push("Must contain at least one number.");
+    }
+    
+    if (!passwordCheck2.test(password)) {
+      errors.push("Must contain at least one special character.");
+    }
+    
+    if (!passwordCheck3.test(password)) {
+      errors.push("Must contain at least one lowercase letter.");
+    }
+    
+    if (!passwordCheck4.test(password)) {
+      errors.push("Must contain at least one uppercase letter.");
+    }
+    return errors;
+  };
+
+  const changePassword = async () => {
+    setPasswordError("");
+
+    if (!currentPassword || !newPassword || !reEnterNewPassword) {
+      setPasswordError("All fields are required.");
+      return;
+    }
+    if (newPassword !== reEnterNewPassword) {
+      setPasswordError("New password and Re-entered password do not match.");
+      return;
+    }
+
+    const pwdErrors = validatePassword(newPassword);
+    if (pwdErrors.length > 0) {
+      setPasswordError(pwdErrors.join(" "));
+      return;
+    }
+
+    setIsChangingPassword(true);
+    try {
+      await axios.put(
+        "https://auth.dnjs.lk/api/password",
+        { old_password: currentPassword, new_password: newPassword },
+        { headers: { Authorization: `Bearer ${accessToken()}` } }
+      );
+      alert("Password changed successfully!");
+      setOpenPasswordDialog(false);
+      setCurrentPassword("");
+      setNewPassword("");
+      setReEnterNewPassword("");
+    } catch (err) {
+      console.error("Password Change Error:", err.response?.data || err.message);
+      setPasswordError(err.response?.data?.message || "Failed to change password.");
+    } finally {
+      setIsChangingPassword(false);
+    }
+  };
+
+  return (
+    <Box className="response">
+      <div className="profile">
+        <h2>Profile</h2>
+      </div>
+
+      <div className="pDetails">
+        {userDetails.avatar && (
+          <img src={userDetails.avatar} alt="Profile" className="pPic" />
+        )}
+
+        <div className="profile-info">
+          <h3 className="pName">Welcome, {userDetails.name}!</h3>
+          <p className="pBio">
+            {userDetails.description || "No description available."}
+          </p>
+        </div>
+
+        <div className="edit-section">
+          <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setOpenProfileEdit(true)}
+        >
+          Edit Profile
+        </Button>
+
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setOpenPasswordDialog(true)}
+        >
+          Change Password
+        </Button>
+        </div>
+
+        
+
+        <div className="upload-section">
+          <input
+            type="file"
+            accept="image/*"
+            className="upload"
+            onChange={(e) => setAvatarFile(e.target.files[0])}
+          />
+          <UploadButton onClick={uploadImage} disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Upload Avatar"}
+          </UploadButton>
+        </div>
+
+        <Button variant="contained" color="primary" onClick={logout} disabled={isLoading}>
+          {isLoading ? "Logging out..." : "Logout"}
+        </Button>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
+
+
+      <ProfileDialog open={openProfileEdit} onClose={() => setOpenProfileEdit(false)}>
+        <DialogTitle>Edit Profile</DialogTitle>
+        <DialogContent>
+          <CssTextField
+            autoFocus
+            margin="dense"
+            label="Name"
+            fullWidth
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <CssTextField
+            margin="dense"
+            label="Description"
+            fullWidth
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenProfileEdit(false)}>Cancel</Button>
+          <Button
+            onClick={saveProfile}
+            variant="contained"
+            disabled={isUpdating}
+          >
+            {isUpdating ? "Saving..." : "Save"}
+          </Button>
+        </DialogActions>
+      </ProfileDialog>
+
+      <PasswordDialog open={openPasswordDialog} onClose={() => setOpenPasswordDialog(false)}>
+        <DialogTitle>Change Password</DialogTitle>
+        <DialogContent>
+          <CssTextField
+            autoFocus
+            margin="dense"
+            label="Current Password"
+            type="password"
+            fullWidth
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+          <CssTextField
+            margin="dense"
+            label="New Password"
+            type="password"
+            fullWidth
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          <CssTextField
+            margin="dense"
+            label="Re-Enter New Password"
+            type="password"
+            fullWidth
+            value={reEnterNewPassword}
+            onChange={(e) => setReEnterNewPassword(e.target.value)}
+          />
+          {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenPasswordDialog(false)}>Cancel</Button>
+          <Button
+            onClick={changePassword}
+            variant="contained"
+            disabled={isChangingPassword}
+          >
+            {isChangingPassword ? "Changing..." : "Change Password"}
+          </Button>
+        </DialogActions>
+      </PasswordDialog>
+    </Box>
+  );
+}
+
+function Assignment_16() {
+  const [logged, setLogged] = useState(false);
+  const [userDetails, setUserDetails] = useState(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const token =
+      localStorage.getItem("access_token") ||
+      sessionStorage.getItem("access_token");
+
+    if (token) {
+      axios
+        .get("https://auth.dnjs.lk/api/user", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          setUserDetails(res.data);
+          setLogged(true);
+          setIsReady(true);
+        })
+        .catch(() => setLogged(false));
+    } else {
+      setIsReady(true);
+    }
+  }, []);
+
+  if (!isReady) {
+    return (
+      <div className="main asg-16">
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="main asg-16">
+      <h1>Assignment #16</h1>
+      <div className="login">
+        {!logged ? (
+          <LoginScreen setLogged={setLogged} setUserDetails={setUserDetails} />
+        ) : (
+          <ProfileScreen
+            userDetails={userDetails}
+            setUserDetails={setUserDetails}
+            setLogged={setLogged}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Assignment_16;
