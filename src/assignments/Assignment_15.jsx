@@ -73,7 +73,7 @@ function LoginScreen({ setLogged, setUserDetails }) {
         }
       })
       .catch((err) => {
-        setError(err.response?.data?.message || "Login failed. Try again.");
+        setError(err.response?.data?.error.message || "Login failed. Try again.");
       })
       .finally(() => setIsLoading(false));
   };
