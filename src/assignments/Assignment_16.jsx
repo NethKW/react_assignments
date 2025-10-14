@@ -224,30 +224,30 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
     setUserDetails(null);
     setLogged(false);
     setIsLoading(false);
-  
+
   };
 
   const validatePassword1 = (password) => {
     setPasswordError("");
     if (password.length < 8 || password.length > 40) {
       setPasswordError("Password must be 8–40 characters long.");
-      
+
     }
     if (!/[0-9]/.test(password)) {
       setPasswordError("Password must contain at least one number.");
-      
+
     }
     if (!/[*/\-@#$]/.test(password)) {
       setPasswordError("Password must contain at least one special character (* / - @ # $).");
-      
+
     }
     if (!/[a-z]/.test(password)) {
       setPasswordError("Password must contain at least one lowercase letter.");
-      
+
     }
     if (!/[A-Z]/.test(password)) {
       setPasswordError("Password must contain at least one uppercase letter.");
-      
+
     }
   }
 
@@ -305,23 +305,23 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
 
         <div className="edit-section">
           <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setOpenProfileEdit(true)}
-        >
-          Edit Profile
-        </Button>
+            variant="contained"
+            color="primary"
+            onClick={() => setOpenProfileEdit(true)}
+          >
+            Edit Profile
+          </Button>
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setOpenPasswordDialog(true)}
-        >
-          Change Password
-        </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setOpenPasswordDialog(true)}
+          >
+            Change Password
+          </Button>
         </div>
 
-        
+
 
         <div className="upload-section">
           <input
@@ -406,11 +406,12 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => {
-             setOpenPasswordDialog(false),
-             setCurrentPassword(""),
-             setNewPassword(""),
-             setReEnterNewPassword(""),
-             setPasswordError(null)}}>Cancel</Button>
+            setOpenPasswordDialog(false),
+              setCurrentPassword(""),
+              setNewPassword(""),
+              setReEnterNewPassword(""),
+              setPasswordError(null)
+          }}>Cancel</Button>
           <Button
             onClick={changePassword}
             variant="contained"
