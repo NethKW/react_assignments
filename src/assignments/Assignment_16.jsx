@@ -233,22 +233,23 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       setPasswordError("Password must be 8–40 characters long.");
 
     }
-    if (!/[0-9]/.test(password)) {
+    else if (!/[0-9]/.test(password)) {
       setPasswordError("Password must contain at least one number.");
 
     }
-    if (!/[*/\-@#$]/.test(password)) {
+    else if (!/[*/\-@#$]/.test(password)) {
       setPasswordError("Password must contain at least one special character (* / - @ # $).");
 
     }
-    if (!/[a-z]/.test(password)) {
+    else if (!/[a-z]/.test(password)) {
       setPasswordError("Password must contain at least one lowercase letter.");
 
     }
-    if (!/[A-Z]/.test(password)) {
+    else if (!/[A-Z]/.test(password)) {
       setPasswordError("Password must contain at least one uppercase letter.");
 
     }
+    return true;
   }
 
   const changePassword = async () => {
