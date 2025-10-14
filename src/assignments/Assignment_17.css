@@ -1,0 +1,65 @@
+.main.asg-17 {
+    min-height: 100vh;
+    background: linear-gradient(90deg, #122c44, #5a7d91);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.asg-17 .color {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 80px;
+}
+
+.asg-17 .color-input {
+    background: rgba(255, 255, 255, 0.162);
+    gap: 40px;
+    color: #122c44;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    width: 350px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.asg-17 .mixed-color{
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 10px;
+    /* border: 2px solid #000000; */
+}
+
+.asg-17 .gradient-color{
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.asg-17 .color-select{
+    display: flex;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #122c44;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.asg-17 .color-input input{
+     width: 80px;
+     border: 0px;
+}
+
+
