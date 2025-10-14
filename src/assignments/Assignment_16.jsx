@@ -224,35 +224,32 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
     setUserDetails(null);
     setLogged(false);
     setIsLoading(false);
+  
   };
 
-  const validatePassword = (password) => {
-    const errors = [];
-    const passwordCheck1 = /[0-9]/g;
-    const passwordCheck2 = /[*/\-@#$]/g;
-    const passwordCheck3 = /[a-z]/g;
-    const passwordCheck4 = /[A-Z]/g;
-    if (password.length < 8 || password.length > 40){
-      errors.push("Password must be 8-40 characters.");
+  const validatePassword1 = (password) => {
+    setPasswordError("");
+    if (password.length < 8 || password.length > 40) {
+      setPasswordError("Password must be 8–40 characters long.");
+      
     }
-  
-    if (!passwordCheck1.test(password)) {
-      errors.push("Must contain at least one number.");
+    if (!/[0-9]/.test(password)) {
+      setPasswordError("Password must contain at least one number.");
+      
     }
-    
-    if (!passwordCheck2.test(password)) {
-      errors.push("Must contain at least one special character.");
+    if (!/[*/\-@#$]/.test(password)) {
+      setPasswordError("Password must contain at least one special character (* / - @ # $).");
+      
     }
-    
-    if (!passwordCheck3.test(password)) {
-      errors.push("Must contain at least one lowercase letter.");
+    if (!/[a-z]/.test(password)) {
+      setPasswordError("Password must contain at least one lowercase letter.");
+      
     }
-    
-    if (!passwordCheck4.test(password)) {
-      errors.push("Must contain at least one uppercase letter.");
+    if (!/[A-Z]/.test(password)) {
+      setPasswordError("Password must contain at least one uppercase letter.");
+      
     }
-    return errors;
-  };
+  }
 
   const changePassword = async () => {
     setPasswordError("");
@@ -266,11 +263,7 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
       return;
     }
 
-    const pwdErrors = validatePassword(newPassword);
-    if (pwdErrors.length > 0) {
-      setPasswordError(pwdErrors.join(" "));
-      return;
-    }
+    if (!validatePassword1(newPassword)) return;
 
     setIsChangingPassword(true);
     try {
