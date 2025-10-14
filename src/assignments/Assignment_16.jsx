@@ -405,7 +405,12 @@ function ProfileScreen({ userDetails, setUserDetails, setLogged }) {
           {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenPasswordDialog(false)}>Cancel</Button>
+          <Button onClick={() => {
+             setOpenPasswordDialog(false),
+             setCurrentPassword(""),
+             setNewPassword(""),
+             setReEnterNewPassword(""),
+             setPasswordError(null)}}>Cancel</Button>
           <Button
             onClick={changePassword}
             variant="contained"
