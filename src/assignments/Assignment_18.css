@@ -1,0 +1,109 @@
+.main.asg-17 {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.asg-17 .game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asg-17 .game h2{
+  color: rgba(242, 242, 245, 0.64);
+} 
+
+.asg-17 .game-over{
+  width: 100px;
+  height: 100px;
+}
+
+.asg-17 .color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.asg-17 .color-input {
+  background: rgba(255, 255, 255, 0.162);
+  color: #122c44;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.asg-17 .mixed-color {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.asg-17 .red {
+  background-color: red;
+}
+
+.asg-17 .blue {
+  background-color: blue;
+}
+
+.asg-17 .color-select {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.asg-17 .color-select button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.asg-17 .red-btn {
+  background-color: red;
+}
+
+.asg-17 .blue-btn {
+  background-color: blue;
+}
+
+.asg-17 .color-select button:hover {
+  opacity: 0.8;
+}
+
+.asg-17 .color-img{
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  margin: 0;
+}
+.asg-17 .score-icon{
+  width:35px;
+  height: 35px;
+  
+}
+.asg-17 .score-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
