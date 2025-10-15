@@ -129,7 +129,7 @@ function GameScreen({ onGameOver }) {
   );
 }
 
-// 🔴 Main Component
+
 function Assignment_18() {
   const [gameStarted, setGameStarted] = useState(false);
 
@@ -137,7 +137,7 @@ function Assignment_18() {
   const handleGameOver = () => console.log("Game Over!");
 
   return (
-    <main className="main asg-17">
+    <main className="main asg-18">
       {!gameStarted ? (
         <StartScreen onStart={handleStart} />
       ) : (
