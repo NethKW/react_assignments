@@ -46,7 +46,7 @@ function GameScreen({ onGameOver }) {
     const newColor = Math.random() < 0.5 ? "blue" : "red";
     setColorArr((previousColor) => {
       const updatedColor = [newColor, ...previousColor];
-      if (updatedColor.length > 5) {
+      if (updatedColor.length > 6) {
         setGameOver(true);
         return previousColor;
       }
