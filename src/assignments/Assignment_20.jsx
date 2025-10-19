@@ -130,7 +130,6 @@ function ReviewScreen({ questions, userAnswers, onFinishReview }) {
   );
 }
 
-// Main Component
 function Assignment_20() {
   const [quizData, setQuizData] = useState([]);
   const [start, setStart] = useState(false);
