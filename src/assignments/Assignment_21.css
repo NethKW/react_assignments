@@ -1,0 +1,80 @@
+.asg-21.color-picker {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #1b2838, #3a6d8c);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.asg-21 h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.upload-btn {
+  background-color: #ffffff;
+  color: #1b2838;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #3a6d8c;
+  color: white;
+}
+
+.upload-btn input {
+  display: none;
+}
+
+.asg-21 .canvas-section {
+  margin-top: 30px;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.asg-21 .canvas {
+  cursor: pointer;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.asg-21 .color-picker{
+    width: 220px;
+    height: 220px;
+}
+
+.asg-21 .color-picker-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.asg-21 p{
+    font-size: medium;
+}
+
+.color-info {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.color-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin: 0 auto 15px;
+  border: 2px solid white;
+}
