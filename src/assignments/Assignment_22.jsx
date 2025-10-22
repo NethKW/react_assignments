@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import "./Assignment_22.css";
-import filterIcon from "../assets/filter.png"; 
+import { toPng } from 'html-to-image';
+import filterIcon from "../assets/filter.png";
 
 function Assignment_22() {
+  const imgRef = useRef(null);
   const [imageURL, setImageURL] = useState(null);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [filters, setFilters] = useState({
     blur: 0,
     brightness: 100,
@@ -27,6 +30,27 @@ function Assignment_22() {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
   };
+
+  const handleDownload = useCallback(() => {
+    if (imgRef.current === null) {
+      return
+    }
+    setIsDownloading(true);
+
+    toPng(imgRef.current)
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        link.click()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      .finally(() => {
+        setTimeout(() => setIsDownloading(false), 1500);
+      });
+  }, [imgRef])
 
   const handleReset = () => {
     setFilters({
@@ -77,39 +101,40 @@ function Assignment_22() {
         Upload Image
         <input type="file" accept="image/*" onChange={handleFileUpload} />
       </label>
+      <div className="filter-section">
+        {imageURL && (
+          <div className="filter-preview" ref={imgRef}>
+            <img
+              src={imageURL}
+              alt="Uploaded"
+              style={{ filter: filterStyle }}
+              className="preview-image"
+            />
+          </div>
+        )}
 
-      {imageURL && (
-        <div className="filter-preview">
-          <img
-            src={imageURL}
-            alt="Uploaded"
-            style={{ filter: filterStyle }}
-            className="preview-image"
-          />
-        </div>
-      )}
+        {imageURL && (
+          <div className="controls">
 
-      {imageURL && (
-        <div className="controls">
-
-          {filterControls.map(({ name, min, max }) => (
-            <div className="control" key={name}>
-              <label>
-                {name} ({filters[name]})
-              </label>
-              <input
-                type="range"
-                name={name}
-                min={min}
-                max={max}
-                value={filters[name]}
-                onChange={handleChange}
-              />
-            </div>
-          ))}
-          <button onClick={handleReset} className="reset-btn">Reset Filters</button>
-        </div>
-      )}
+            {filterControls.map(({ name, min, max }) => (
+              <div className="control" key={name}>
+                <label>
+                  {name} ({filters[name]})
+                </label>
+                <input
+                  type="range"
+                  name={name}
+                  min={min}
+                  max={max}
+                  value={filters[name]}
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
+            <button onClick={handleReset} className="reset-btn">Reset Filters</button>
+            <button onClick={handleDownload} className="download-btn" disabled={isDownloading}>{isDownloading ? "Downloading..." : "Download"}</button>
+          </div>
+        )}</div>
     </div>
   );
 }
