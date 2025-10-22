@@ -29,6 +29,7 @@ function App() {
         <Link to="/ASG-19" className="alink">Assignment 19</Link>
         <Link to="/ASG-20" className="alink">Assignment 20</Link>
         <Link to="/ASG-21" className="alink">Assignment 21</Link>
+        <Link to="/ASG-22" className="alink">Assignment 22</Link>
         
       </div>
     </div>

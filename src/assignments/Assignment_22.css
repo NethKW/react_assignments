@@ -1,0 +1,96 @@
+.main.asg-22 {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.asg-22 .filter-header {
+  text-align: center;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asg-22 .filter-icon {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 15px;
+}
+
+.asg-22 .upload-btn {
+  background-color: #ffffff;
+  color: #28313b;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.asg-22 .upload-btn:hover {
+  background-color: #485563;
+  color: white;
+}
+
+.asg-22 .upload-btn input {
+  display: none;
+}
+
+.asg-22 .filter-preview {
+  margin-top: 25px;
+  border: 2px solid white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.asg-22 .preview-image {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.asg-22 .controls {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+}
+
+.asg-22 .control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.asg-22 .control label {
+  margin-bottom: 5px;
+}
+
+.asg-22 .control input[type="range"] {
+  width: 100%;
+}
+
+.asg-22 .reset-btn {
+  background-color: #ffffff;
+  color: #28313b;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.asg-22 .reset-btn:hover {
+  background-color: #485563;
+  color: white;
+}
