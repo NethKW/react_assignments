@@ -1,0 +1,89 @@
+.main.asg-23 {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #122c44, #5a7d91);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.asg-23 .filter-header {
+  text-align: center;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asg-23 .filter-icon {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 15px;
+}
+
+.asg-23 .upload-btn {
+  background-color: #ffffff;
+  color: #28313b;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.asg-23 .upload-btn:hover {
+  background-color: #485563;
+  color: white;
+}
+
+.asg-23 .upload-btn input {
+  display: none;
+}
+
+.asg-23 .filter-section {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.asg-23 canvas {
+  border: 2px solid white;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.asg-23 .controls {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.asg-23 input[type="range"] {
+  width: 100%;
+}
+
+.asg-23 .apply-btn, .asg-23 .download-btn {
+  background-color: #ffffff;
+  color: #28313b;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.asg-23 .apply-btn:hover, .asg-23 .download-btn:hover {
+  background-color: #485563;
+  color: white;
+}
