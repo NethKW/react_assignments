@@ -42,18 +42,10 @@
   justify-content: center;
   margin-top: 20px;
 }
-
-.asg-24 .canvas {
-  border: 2px solid white;
-  border-radius: 12px;
-  max-width: 600px;
-}
-
 .asg-24 .img-area {
   position: relative;
   display: inline-block;
   margin-top: 20px;
-  
 }
 
 .asg-24 .controls{
