@@ -68,6 +68,22 @@
     width: 100%;
 }
 
+.asg-24 .crop-btn {
+    background-color: #ffffff90;
+    color: #28313b;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.asg-24 .crop-btn:hover {
+    background-color: #485563;
+    color: white;
+}
+
 .asg-25 .canvas {
     display: block;
     border: 2px solid #555;
