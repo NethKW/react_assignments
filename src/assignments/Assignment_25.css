@@ -68,7 +68,7 @@
     width: 100%;
 }
 
-.asg-24 .crop-btn {
+.asg-25 .crop-btn {
     background-color: #ffffff90;
     color: #28313b;
     padding: 10px 25px;
@@ -79,7 +79,7 @@
     transition: 0.3s;
 }
 
-.asg-24 .crop-btn:hover {
+.asg-25 .crop-btn:hover {
     background-color: #485563;
     color: white;
 }
