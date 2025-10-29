@@ -32,7 +32,8 @@ function App() {
         <Link to="/ASG-22" className="alink">Assignment 22</Link>
         <Link to="/ASG-23" className="alink">Assignment 23 - Pixel Filter</Link>
         <Link to="/ASG-24" className="alink">Assignment 24 - Crop Filter</Link>
-        <Link to="/ASG-25" className="alink">Assignment 24 - Clone Filter</Link>   
+        <Link to="/ASG-25" className="alink">Assignment 25 - Clone Filter</Link>
+        <Link to="/ASG-26" className="alink">Assignment 26 - Clone Filter</Link>   
       </div>
     </div>
   );
