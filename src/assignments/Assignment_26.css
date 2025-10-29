@@ -1,0 +1,109 @@
+.main.asg-26 {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #2b5876, #4e4376);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asg-26 h1 {
+  margin-bottom: 20px;
+}
+
+.asg-26 .set-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.asg-26 .set-btn {
+  padding: 10px 20px;
+  border: none;
+  width: 100px;
+  border-radius: 8px;
+  background: #ffffff90;
+  color: #222;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.asg-26 .set-btn:hover {
+  background: #00c3ff;
+  color: white;
+}
+
+.asg-26 .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-gap: 15px;
+  margin-top: 30px;
+}
+.asg-26 .game-icon {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.asg-26 .card {
+  width: 100px;
+  height: 100px;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.asg-26 .card .inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.asg-26 .card.flipped .inner {
+  transform: rotateY(180deg);
+}
+
+.asg-26 .front,
+.asg-26 .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #fff3;
+}
+
+.asg-26 .front {
+  background: #ffffff40;
+}
+
+.asg-26 .back {
+  transform: rotateY(180deg);
+  background: #ffffff90;
+  color: #111;
+}
+
+.asg-26 .win {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  position: relative;
+  animation-name: myAnimation;
+  animation-duration: 15s;  
+  animation-fill-mode: forwards;
+}
+
+@keyframes myAnimation {
+  from {top: 0px;}
+  to {top: 20px;}
+}
