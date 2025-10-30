@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Assignment_27.css';
 
-const rows = 10;
-const cols = 10;
+const rows = 12;
+const cols = 12;
 
 const mat = Array(rows)
   .fill()
@@ -48,7 +48,7 @@ function Sample() {
     };
     const interval = setInterval(() => {
       moveSnake();
-    }, 500);
+    }, 200);
 
     return () => clearInterval(interval);
   }, [snake, direction]);
