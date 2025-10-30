@@ -1,0 +1,46 @@
+.main.asg-27 {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.asg-27 .main-grid {
+    background-color: #6b6b6b1e;
+    padding: 15px;
+    border: 1px solid #111;
+    border-radius: 20px;
+}
+
+.asg-27 .grid {
+    display: inline-block;
+}
+
+.asg-27 .game-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.asg-27 .row {
+    display: flex;
+}
+
+.asg-27 .cell {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #111;
+    background-color: #6b6b6b45;
+}
+
+.asg-27 .cell.snake {
+    background-color: rgb(217, 9, 9);
+}
+.asg-27 p{
+    color: #111;
+}
