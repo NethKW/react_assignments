@@ -22,10 +22,10 @@ function Sample() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       const key = e.key.toLowerCase();
-      if ((key === "ArrowUp" || key==='w') && direction !== "DOWN") setDirection("UP");
-      else if ((key === "ArrowDown" || key==='s') && direction !== "UP") setDirection("DOWN");
-      else if ((key === "ArrowLeft" || key==='a') && direction !== "RIGHT") setDirection("LEFT");
-      else if ((key === "ArrowRight" || key==='d') && direction !== "LEFT") setDirection("RIGHT");
+      if ((key === "arrowup" || key==='w') && direction !== "DOWN") setDirection("UP");
+      else if ((key === "arrowdown" || key==='s') && direction !== "UP") setDirection("DOWN");
+      else if ((key === "arrowleft" || key==='a') && direction !== "RIGHT") setDirection("LEFT");
+      else if ((key === "arrowright" || key==='d') && direction !== "LEFT") setDirection("RIGHT");
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
