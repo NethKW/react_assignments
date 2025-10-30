@@ -41,6 +41,14 @@
 .asg-27 .cell.snake {
     background-color: rgb(217, 9, 9);
 }
+
+.asg-27 .food-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; 
+}
+
 .asg-27 p{
     color: #111;
 }
