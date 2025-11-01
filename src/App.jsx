@@ -34,7 +34,8 @@ function App() {
         <Link to="/ASG-24" className="alink">Assignment 24 - Crop Filter</Link>
         <Link to="/ASG-25" className="alink">Assignment 25 - Clone Filter</Link>
         <Link to="/ASG-26" className="alink">Assignment 26 - Flip & Match Game</Link>  
-        <Link to="/ASG-27" className="alink">Assignment 27 - Snake Game</Link>  
+        <Link to="/ASG-27" className="alink">Assignment 27 - Snake Game</Link>
+        <Link to="/ASG-28" className="alink">Assignment 28 - Slide Show</Link>  
       </div>
     </div>
   );

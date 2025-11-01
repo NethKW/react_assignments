@@ -1,0 +1,242 @@
+.main.asg-28 {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asg-28 .slide-contain {
+  display: flex;
+  width: 70%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.asg-28 .slide-list {
+  width: 15%;
+  background: #ffffff0c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+  font-weight: bolder;
+}
+
+.asg-28 .slides {
+  width: 150px;
+  height: 80px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.asg-28 .slides.active {
+  outline: 3px solid #00d9ff6f;
+}
+
+.asg-28 .slides.add {
+  background: #ffffff0c;
+  color: rgb(255, 255, 255);
+}
+
+.asg-28 .delete {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  cursor: pointer;
+  background-color: #ffffff40;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.asg-28 .slide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.asg-28 .slide input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  outline: none;
+}
+
+.asg-28 .bottom-bar {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.asg-28 .colors {
+  display: flex;
+  gap: 5px;
+  background-color: #ffffff12;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.asg-28 .color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.asg-28 .play {
+  background: #ffffff12;
+  color: rgba(255, 255, 255, 0.779);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.asg-28 .animations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.asg-28 .animation-btn {
+  background: #ffffff12;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.asg-28 .animation-btn:hover {
+  background: #ffffff25;
+}
+
+.asg-28 .slideshow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.asg-28 .nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.asg-28 .prev,
+.asg-28 .next {
+  background: #ffffff12;
+  border: none;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.asg-28 .exit {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffffff12;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fade {
+  opacity: 0;
+  animation: fadeIn 1.8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.up {
+  transform: translateY(60px);
+  opacity: 0;
+  animation: slideUp 0.8s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.down {
+  transform: translateY(-60px);
+  opacity: 0;
+  animation: slideDown 0.8s forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.blur {
+  filter: blur(6px);
+  opacity: 0;
+  animation: blurIn 1.5s forwards;
+}
+
+@keyframes blurIn {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.rotate {
+  transform: rotateY(90deg);
+  opacity: 0;
+  animation: rotateIn 0.8s forwards;
+}
+
+@keyframes rotateIn {
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
