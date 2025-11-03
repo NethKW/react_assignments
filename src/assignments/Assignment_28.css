@@ -178,6 +178,62 @@
   cursor: pointer;
 }
 
+.asg-28 .font-edit {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #1e293b;
+  color: white;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.asg-28 .font-edit:hover {
+  background: #334155;
+}
+
+.asg-28 .font-tab {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  width: 200px;
+  background: #ffffff25;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+}
+
+.asg-28 .font-tab select {
+  font-size: 13px;
+  margin-bottom: -6px;
+  background-color: #ffffff25;
+}
+
+.asg-28 .font-style {
+  display: flex;
+  justify-content: space-around;
+}
+
+.asg-28 .font-style button {
+  background: #ffffff25;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.asg-28 .font-style button.active {
+  background: #ffffffc1;
+  color: black;
+}
+
 .fade {
   opacity: 0;
   animation: fadeIn 1.8s forwards;

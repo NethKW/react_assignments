@@ -6,6 +6,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
+import FormatSizeIcon from '@mui/icons-material/FormatSize';
 
 function Assignment_28() {
   const [slides, setSlides] = useState([
@@ -16,8 +17,10 @@ function Assignment_28() {
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef(null);
+  const [showFontPanel, setShowFontPanel] = useState(false);
   const colors = ["#05163a", "#4d0505", "#04421b", "#522607", "#24053f"];
   const animations = ["fade", "up", "down", "blur", "rotate"];
+  const fonts = ["Arial", "Bauhaus 93", "Poppins", "Gigi", "Georgia", "Segoe Print", "Times New Roman"];
 
   const handlePlay = () => {
     const elem = containerRef.current;
@@ -71,8 +74,8 @@ function Assignment_28() {
     <div
       ref={containerRef}
       className={`${isPlaying
-          ? "asg-28 w-screen h-screen bg-black flex items-center justify-center"
-          : "asg-28 main"
+        ? "asg-28 w-screen h-screen bg-black flex items-center justify-center"
+        : "asg-28 main"
         }`}
     >
       {!isPlaying ? (
@@ -108,8 +111,74 @@ function Assignment_28() {
                 spellCheck="false"
                 value={slides[current].text}
                 onChange={(e) => updateSlide("text", e.target.value)}
+                style={{
+                  fontSize: `${slides[current].fontSize}px`,
+                  fontFamily: slides[current].fontFamily,
+                  fontStyle: slides[current].fontStyle,
+                  fontWeight: slides[current].fontWeight,
+                  textDecoration: slides[current].textDecoration,
+                }}
               />
             </div>
+
+            <div className="font-edit" onClick={() => setShowFontPanel(!showFontPanel)}>
+              <FormatSizeIcon />
+            </div>
+
+            {showFontPanel && (
+              <div className="font-tab">
+                <h4>Text Style</h4>
+
+                <label>Font Family:</label>
+                <select
+                  value={slides[current].fontFamily}
+                  onChange={(e) => updateSlide("fontFamily", e.target.value)}
+                >
+                  {fonts.map((f) => (
+                    <option key={f} value={f}>{f}</option>
+                  ))}
+                </select>
+
+                <label>Font Size:</label>
+                <input
+                  type="range"
+                  min="10"
+                  max="100"
+                  value={slides[current].fontSize}
+                  onChange={(e) => updateSlide("fontSize", parseInt(e.target.value))}
+                />
+
+                <div className="font-style">
+                  <button
+                    className={slides[current].fontWeight === "bold" ? "active" : ""}
+                    onClick={() =>
+                      updateSlide("fontWeight", slides[current].fontWeight === "bold" ? "normal" : "bold")
+                    }
+                  >
+                    <b>B</b>
+                  </button>
+                  <button
+                    className={slides[current].fontStyle === "italic" ? "active" : ""}
+                    onClick={() =>
+                      updateSlide("fontStyle", slides[current].fontStyle === "italic" ? "normal" : "italic")
+                    }
+                  >
+                    <i>I</i>
+                  </button>
+                  <button
+                    className={slides[current].textDecoration === "underline" ? "active" : ""}
+                    onClick={() =>
+                      updateSlide(
+                        "textDecoration",
+                        slides[current].textDecoration === "underline" ? "none" : "underline"
+                      )
+                    }
+                  >
+                    <u>U</u>
+                  </button>
+                </div>
+              </div>
+            )}
 
             <div className="bottom-bar">
               <div className="colors">
@@ -150,14 +219,14 @@ function Assignment_28() {
           <h1>{slides[current].text}</h1>
           <div className="nav-buttons">
             <button className="prev" onClick={handlePrevSlide}>
-              <ArrowBackIosIcon/>
+              <ArrowBackIosIcon />
             </button>
             <button className="next" onClick={handleNextSlide}>
-              <ArrowForwardIosIcon/>
+              <ArrowForwardIosIcon />
             </button>
           </div>
           <button className="exit" onClick={handleExit}>
-            <CloseIcon/>
+            <CloseIcon />
           </button>
         </div>
       )}
