@@ -214,7 +214,14 @@ function Assignment_28() {
       ) : (
         <div
           className={`slideshow ${slides[current].animation}`}
-          style={{ background: slides[current].bg }}
+          style={{
+            background: slides[current].bg,
+            fontSize: `${slides[current].fontSize}px`,
+            fontFamily: slides[current].fontFamily,
+            fontStyle: slides[current].fontStyle,
+            fontWeight: slides[current].fontWeight,
+            textDecoration: slides[current].textDecoration,
+          }}
         >
           <h1>{slides[current].text}</h1>
           <div className="nav-buttons">
