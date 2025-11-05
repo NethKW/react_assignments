@@ -7,6 +7,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import FormatSizeIcon from '@mui/icons-material/FormatSize';
+import AnimationIcon from '@mui/icons-material/Animation';
 
 const colors = ["#05163a", "#4d0505", "#04421b", "#522607", "#24053f"];
 const animations = ["fade", "up", "down", "blur", "rotate"];
@@ -14,14 +15,15 @@ const fonts = ["Arial", "Poppins", "Gigi", "Georgia", "Segoe Print", "Times New 
 
 function Assignment_28() {
   const [slides, setSlides] = useState([
-    { id: 1, text: "WELCOME TO SLIDE 1", bg: "#0b307eff", animation: "fade", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none" },
-    { id: 2, text: "SLIDE 2", bg: "#7e4c0bff", animation: "blur", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none" },
+    { id: 1, text: "WELCOME TO SLIDE 1", bg: "#0b307eff", animation: "fade", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none", animationDuration: 1.5 },
+    { id: 2, text: "SLIDE 2", bg: "#7e4c0bff", animation: "blur", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none", animationDuration: 1.5 },
   ]);
 
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef(null);
   const [showFontPanel, setShowFontPanel] = useState(false);
+  const [showAnimPanel, setShowAnimPanel] = useState(false);
 
   const handlePlay = () => {
     const elem = containerRef.current;
@@ -52,6 +54,7 @@ function Assignment_28() {
         fontStyle: "normal",
         fontWeight: "normal",
         textDecoration: "none",
+        animationDuration: 1.5,
       },
     ]);
   };
@@ -186,6 +189,27 @@ function Assignment_28() {
               </div>
             )}
 
+            <div className="anim-edit" onClick={() => setShowAnimPanel(!showAnimPanel)}>
+              <AnimationIcon />
+            </div>
+
+            {showAnimPanel && (
+              <div className="anim-tab">
+                <h4>Animation Duration</h4>
+                <label>Duration (seconds):</label>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="5"
+                  step="0.1"
+                  value={slides[current].animationDuration}
+                  onChange={(e) => updateSlide("animationDuration", parseFloat(e.target.value))}
+                />
+                <span>{slides[current].animationDuration}s</span>
+              </div>
+            )}
+
+
             <div className="bottom-bar">
               <div className="colors">
                 {colors.map((c, i) => (
@@ -227,6 +251,7 @@ function Assignment_28() {
             fontStyle: slides[current].fontStyle,
             fontWeight: slides[current].fontWeight,
             textDecoration: slides[current].textDecoration,
+            "--anim-duration": `${slides[current].animationDuration}s`,
           }}
         >
           <h1>{slides[current].text}</h1>
