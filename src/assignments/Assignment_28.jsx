@@ -8,19 +8,20 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import FormatSizeIcon from '@mui/icons-material/FormatSize';
 
+const colors = ["#05163a", "#4d0505", "#04421b", "#522607", "#24053f"];
+const animations = ["fade", "up", "down", "blur", "rotate"];
+const fonts = ["Arial", "Poppins", "Gigi", "Georgia", "Segoe Print", "Times New Roman"];
+
 function Assignment_28() {
   const [slides, setSlides] = useState([
-    { id: 1, text: "WELCOME TO SLIDE 1", bg: "#0b307eff", animation: "fade" },
-    { id: 2, text: "SLIDE 2", bg: "#7e4c0bff", animation: "blur" },
+    { id: 1, text: "WELCOME TO SLIDE 1", bg: "#0b307eff", animation: "fade", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none" },
+    { id: 2, text: "SLIDE 2", bg: "#7e4c0bff", animation: "blur", fontSize: 32, fontFamily: "Arial", fontStyle: "normal", fontWeight: "normal", textDecoration: "none" },
   ]);
 
   const [current, setCurrent] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef(null);
   const [showFontPanel, setShowFontPanel] = useState(false);
-  const colors = ["#05163a", "#4d0505", "#04421b", "#522607", "#24053f"];
-  const animations = ["fade", "up", "down", "blur", "rotate"];
-  const fonts = ["Arial", "Bauhaus 93", "Poppins", "Gigi", "Georgia", "Segoe Print", "Times New Roman"];
 
   const handlePlay = () => {
     const elem = containerRef.current;
@@ -46,6 +47,11 @@ function Assignment_28() {
         text: `SLIDE ${slides.length + 1}`,
         bg: "#475569",
         animation: "fade",
+        fontSize: 32,
+        fontFamily: "Arial",
+        fontStyle: "normal",
+        fontWeight: "normal",
+        textDecoration: "none",
       },
     ]);
   };
