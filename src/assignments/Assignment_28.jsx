@@ -231,7 +231,7 @@ function Assignment_28() {
                 {animations.map((a) => (
                   <button
                     key={a}
-                    className="animation-btn"
+                    className={`animation-btn ${slides[current].animation === a ? "active" : ""}`}
                     onClick={() => applyAnimation(a)}
                   >
                     {a.toUpperCase()}

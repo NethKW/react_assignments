@@ -136,6 +136,10 @@
   background: #ffffff25;
 }
 
+.asg-28 .animation-btn.active {
+  background: #fffefe5e;
+}
+
 .asg-28 .slideshow {
   width: 100%;
   height: 100%;
