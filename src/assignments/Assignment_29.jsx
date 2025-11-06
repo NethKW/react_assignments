@@ -43,7 +43,6 @@ export default function Assignment_29() {
       });
       requestAnimationFrame(animate);
     };
-
     animate();
   }, [analyser]);
 
@@ -51,7 +50,6 @@ export default function Assignment_29() {
     <div className="asg-29 main">
       <div className="audio">
         <h1>Audio Wave Animation</h1>
-
         <div className="audio-box">
           {[...Array(32)].map((_, i) => (
             <div key={i} className="bar"></div>
