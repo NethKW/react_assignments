@@ -1,0 +1,50 @@
+.asg-29.main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asg-29 .audio {
+  width: 70%;
+  max-width: 800px;
+  background: #ffffff1a;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+}
+
+.asg-29 .audio-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 270px;
+  gap: 5px;
+  margin: 20px auto;
+  background: #ffffff12;
+  border-radius: 15px;
+  padding: 10px 0;
+}
+
+.asg-29 .bar {
+  width: 8px;
+  border-radius: 4px;
+  background: rgb(2, 18, 63);
+  transition: height 0.1s linear, background 0.2s;
+}
+
+.asg-29 .controls {
+  margin-top: 25px;
+}
+
+.asg-29 .audio-player {
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+}
+
+
