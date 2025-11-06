@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import "./Assignment_29.css";
 import audioFile from "../audio/audio.mp3";
 
-export default function Assignment_29() {
+function Assignment_29() {
   const [analyser, setAnalyser] = useState(null);
   const audioRef = useRef(null);
 
@@ -69,3 +69,5 @@ export default function Assignment_29() {
     </div>
   );
 }
+
+export default Assignment_29
