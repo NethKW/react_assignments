@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import React, {useEffect, useState, useRef } from "react";
 import "./Assignment_29.css";
 import audioFile from "../audio/audio.mp3";
 
 function Assignment_29() {
   const [analyser, setAnalyser] = useState(null);
   const audioRef = useRef(null);
+  const [bars, setBars] = useState([]);
 
   const handlePlay = async () => {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -31,7 +32,6 @@ function Assignment_29() {
     if (!analyser) return;
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
-    const bars = document.querySelectorAll(".bar");
 
     const animate = () => {
       analyser.getByteFrequencyData(dataArray);
@@ -39,20 +39,25 @@ function Assignment_29() {
         const value = dataArray[i];
         const maxHeight = 250;
         const normalized = (value / 255) * maxHeight;
-        bar.style.height = `${normalized}px`;
+        bar.current.style.height = `${normalized}px`;
       });
       requestAnimationFrame(animate);
     };
     animate();
-  }, [analyser]);
+  }, [analyser, bars]);
+
+  useEffect(() => {
+    const refs = Array.from({ length: 32 }, () => React.createRef());
+    setBars(refs);
+  }, []);
 
   return (
     <div className="asg-29 main">
       <div className="audio">
         <h1>Audio Wave Animation</h1>
         <div className="audio-box">
-          {[...Array(32)].map((_, i) => (
-            <div key={i} className="bar"></div>
+          {bars.map((ref, i) => (
+            <div key={i} ref={ref} className="bar"></div>
           ))}
         </div>
 
