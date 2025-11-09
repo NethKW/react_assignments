@@ -1,0 +1,80 @@
+.asg-30.main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asg-30 .audio {
+  width: 70%;
+  max-width: 800px;
+  background: #ffffff1a;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+}
+
+.asg-30 .audio-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 190px;
+  gap: 5px;
+  margin: 20px auto;
+  background: #ffffff12;
+  border-radius: 15px;
+  padding: 10px 0;
+}
+
+.asg-30 .bar {
+  width: 8px;
+  border-radius: 4px;
+  background: rgb(2, 18, 63);
+  transition: height 0.1s linear, background 0.2s;
+}
+
+.asg-30 .controls {
+  margin-top: 25px;
+}
+
+.asg-30 .audio-player {
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+}
+
+.asg-30 .lyrics-scroll {
+  margin-top: 40px;
+  background: #ffffff10;
+  border-radius: 10px;
+  padding: 20px;
+  height: 220px;              
+  overflow-y: auto;  
+  scrollbar-width: thin;
+  scrollbar-color: #646463 #222;
+  text-align: center;
+}
+
+.asg-30 .lyric-line {
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+  margin: 6px 0;
+  cursor: pointer;
+}
+
+.asg-30 .lyric-line:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+.asg-30 .active-line {
+  color: #00d9ff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  opacity: 1;
+  text-shadow: 0 0 10px #00e5ff;
+}
