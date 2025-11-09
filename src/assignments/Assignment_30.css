@@ -53,7 +53,7 @@
   border-radius: 10px;
   padding: 20px;
   height: 220px;              
-  overflow-y: auto;  
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #646463 #222;
   text-align: center;
@@ -72,9 +72,9 @@
 }
 
 .asg-30 .active-line {
-  color: #00d9ff;
+  color: #92efff;
   font-size: 1.3rem;
   font-weight: 700;
   opacity: 1;
-  text-shadow: 0 0 10px #00e5ff;
+  text-shadow: 0 0 10px #4dc3d0c8;
 }
