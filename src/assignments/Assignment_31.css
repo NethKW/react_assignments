@@ -1,0 +1,62 @@
+.asg-31.main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: "Segoe UI", sans-serif;
+  color: #cfcfcf;
+  overflow: hidden;
+}
+
+.asg-31 .card-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.asg-31 .card {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.asg-31 .card-item {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 120px;
+  height: 160px;
+  background: #ffffff36;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.asg-31 .btn {
+  background: none;
+  border: 2px solid #cfcfcf;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  color: #cfcfcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.asg-31 .btn:hover {
+  background-color: #cfcfcf;
+  color: #0d0d0d;
+}

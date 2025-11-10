@@ -37,7 +37,8 @@ function App() {
         <Link to="/ASG-27" className="alink">Assignment 27 - Snake Game</Link>
         <Link to="/ASG-28" className="alink">Assignment 28 - Slide Show</Link>
         <Link to="/ASG-29" className="alink">Assignment 29 - Audio Wave Animation</Link>
-        <Link to="/ASG-30" className="alink">Assignment 30 - Audio Wave Animation with Lyrics</Link>  
+        <Link to="/ASG-30" className="alink">Assignment 30 - Audio Wave Animation with Lyrics</Link>
+        <Link to="/ASG-31" className="alink">Assignment 31 - infinity</Link>   
       </div>
     </div>
   );
