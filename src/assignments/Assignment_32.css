@@ -1,0 +1,80 @@
+.main.asg-32 {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #203a43, #2c5364, #0f2027);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.asg-32 .puzzle-container {
+  display: inline-block;
+  padding: 5px;
+}
+
+.asg-32 .puzzle-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid #dadada;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.asg-32 .row {
+  display: flex;
+}
+
+.asg-32 .cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.asg-32 .cell.selected {
+  background-color: #53b7c8;
+}
+
+.asg-32 .cell.found {
+  background-color: #011e3a;
+}
+
+.asg-32 .word-list {
+  text-align: left;
+}
+
+.asg-32 .word-item {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.asg-32 .word-item.word-found {
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+.asg-32 .shuffle-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-weight: bold;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.asg-32 .shuffle-btn:hover {
+  background-color: #145ca4;
+}
