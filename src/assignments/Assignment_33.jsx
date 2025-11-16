@@ -21,9 +21,9 @@ function Assignment_33() {
   }, [isGameOver]);
 
   const throwKnife = () => {
-    if (flying) return;
+    if (flying || isGameOver) return;
     setFlying(true);
-    setFlyingKnife(550);
+    setFlyingKnife(650);
   };
 
   useEffect(() => {
