@@ -40,7 +40,8 @@ function App() {
         <Link to="/ASG-30" className="alink">Assignment 30 - Audio Wave Animation with Lyrics</Link>
         <Link to="/ASG-31" className="alink">Assignment 31 - infinite-items-slider</Link>
         <Link to="/ASG-32" className="alink">Assignment 32 - word-jumble game</Link>
-        <Link to="/ASG-33" className="alink">Assignment 33 - blade-hit game</Link>   
+        <Link to="/ASG-33" className="alink">Assignment 33 - blade-hit game</Link>  
+        <Link to="/ASG-34" className="alink">Assignment 34 - drum clock</Link>   
       </div>
     </div>
   );
