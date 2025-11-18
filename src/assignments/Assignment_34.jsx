@@ -19,7 +19,7 @@ const getCoords = (n, radius, rotation) => {
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DrumColumn = ({ digit }) => {
-  const radius = 80;
+  const radius = 100;
   const [rotation, setRotation] = useState(digit * -36);
 
   useEffect(() => {
