@@ -1,0 +1,31 @@
+.main.asg-35 {
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.asg-35 .scrollVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.asg-35 .sections {
+    position: relative;
+    z-index: 10;
+    color: white;
+    width: 100%;
+    padding-top: 600vh;
+}
+
+.asg-35 .subSection {
+    height: 100vh;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
