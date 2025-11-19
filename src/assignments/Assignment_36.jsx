@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Assignment_36.css";
-import sampleVideo from "./video/custom.mp4";
+import sampleVideo from "./video/scrolling_video.mp4";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 
