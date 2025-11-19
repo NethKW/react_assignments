@@ -1,0 +1,48 @@
+.main.asg-36 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+.asg-36 .videoPlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(180, 180, 180, 0.338);
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+
+.asg-36 .video {
+    width: 100%;
+    height: 380px;
+    margin-bottom: 20px;
+}
+
+.asg-36 .controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(180, 180, 180, 0.338);
+    border-radius: 20px;
+    padding: 8px 8px;
+    width: 100%;
+    position: relative;
+}
+
+.asg-36 .controls input[type="range"] {
+    cursor: pointer;
+    width: 500px;
+}
+
+.asg-36 button{
+    background: #ffffff00;
+    border: #ffffff00;
+    padding-left: 20px;
+}
