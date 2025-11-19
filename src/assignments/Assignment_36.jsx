@@ -10,7 +10,7 @@ export default function Assignment_36() {
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  
+
   const Play = () => {
     if (videoRef.current.paused) {
       videoRef.current.play();
@@ -45,7 +45,7 @@ export default function Assignment_36() {
       <div className="videoPlay">
 
         <h2>Custom Video Player</h2>
-        
+
         <video
           ref={videoRef}
           className="video"
