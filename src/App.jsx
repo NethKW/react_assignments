@@ -45,7 +45,9 @@ function App() {
         <Link to="/ASG-35" className="alink">Assignment 35 - scroll video</Link>   
         <Link to="/ASG-36" className="alink">Assignment 36 - custom video player</Link>
         <Link to="/ASG-37" className="alink">Assignment 37 - slide puzzle</Link>
+        <p>Web API Tasks </p>
         <Link to="/ASG-38" className="alink">Assignment 38 - current location</Link>
+        <Link to="/ASG-39" className="alink">Assignment 39 - notification permission</Link>
       </div>
     </div>
   );
