@@ -48,6 +48,7 @@ function App() {
         <p>Web API Tasks </p>
         <Link to="/ASG-38" className="alink">Assignment 38 - current location</Link>
         <Link to="/ASG-39" className="alink">Assignment 39 - notification permission</Link>
+        <Link to="/ASG-40" className="alink">Assignment 40 - text & speech</Link>
       </div>
     </div>
   );
