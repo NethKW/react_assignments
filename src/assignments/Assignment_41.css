@@ -1,0 +1,43 @@
+.main.asg-41 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: white;
+}
+
+.asg-41 textarea {
+    width: 50%;
+    height: 250px;
+    padding: 12px;
+    font-size: 16px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.549);
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.asg-41 .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.asg-41 button {
+    padding: 12px 20px;
+    width: 120px;
+    border-radius: 10px;
+    background: #04325b;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.asg-41 button:hover {
+  background: #1f6397;
+  color: black;
+}
