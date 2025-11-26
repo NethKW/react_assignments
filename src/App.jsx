@@ -49,6 +49,7 @@ function App() {
         <Link to="/ASG-38" className="alink">Assignment 38 - current location</Link>
         <Link to="/ASG-39" className="alink">Assignment 39 - notification permission</Link>
         <Link to="/ASG-40" className="alink">Assignment 40 - text & speech</Link>
+        <Link to="/ASG-41" className="alink">Assignment 41 - text editor</Link>
       </div>
     </div>
   );
