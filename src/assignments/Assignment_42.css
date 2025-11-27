@@ -1,0 +1,37 @@
+.main.asg-42 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #5e60ce, #64dfdf);
+    color: #fff;
+}
+
+.asg-42 .enable-btn {
+    margin-top: 30px;
+    padding: 15px 25px;
+    background: #1b3a4b;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.asg-42 .enable-btn:hover {
+    background: #22577a;
+}
+
+.asg-42 .value {
+    margin-top: 30px;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    line-height: 1.8;
+}
+.asg-42 p{
+    font-size: 20px;
+}
+
