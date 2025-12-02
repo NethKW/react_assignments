@@ -1,0 +1,48 @@
+.main.asg-43 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #5e60ce, #64dfdf);
+    color: #fff;
+}
+
+.asg-43 .enable {
+    margin-top: 30px;
+    padding: 15px 25px;
+    background: #1b3a4b;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.asg-43 .box {
+    margin-top: 40px;
+    width: 400px;
+    height: 600px;
+    border: 4px solid rgba(255, 255, 255, 0.456);
+    border-radius: 20px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.136);
+}
+
+.blueBox {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(180deg, #064673, #07063c);
+    position: absolute;
+    bottom: 0px;
+    left: 250px;
+    border-radius: 5px;
+}
+
+.snow {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
