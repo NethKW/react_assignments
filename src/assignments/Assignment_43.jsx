@@ -50,7 +50,7 @@ function Assignment_43() {
         ...prev,
         {
           id: Date.now(),
-          x: Math.random()*580,
+          x: Math.random()*400,
           y:0
         }
       ]});
@@ -62,8 +62,8 @@ function Assignment_43() {
   useEffect(() =>{
     const loop = setInterval(() => {
       setSnow((prev) =>
-      prev.map((r) => ({...r, y: r.y +5})).filter((r) => r.y < 550))
-    }, 80); 
+      prev.map((r) => ({...r, y: r.y +5})).filter((r) => r.y < 500))
+    }, 70); 
 
     return () => clearInterval(loop);
   }, []);
