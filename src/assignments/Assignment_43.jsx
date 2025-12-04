@@ -6,12 +6,11 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 function Assignment_43() {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [gamma, setGamma] = useState(null);
-  const boxRef = useRef(null);
-  const blueRef = useRef(null);
   const [snow, setSnow] = useState([]);
   const [score, setScore] = useState(0);
   const [bluePos, setBluePos] = useState(0);
-
+  const boxRef = useRef(null);
+  const blueRef = useRef(null);
 
   const requestPermission = async () => {
     if (
@@ -84,31 +83,7 @@ function Assignment_43() {
     setBluePos(posX);
   }, [gamma, permissionGranted]);
 
-  // useEffect(() => {
-  //     if (!blueRef.current) return;
-
-  //     const px = blueRef.current.offsetLeft;
-  //     const py = blueRef.current.offsetTop;
-  //     const pSize = 40;
-
-  //     setSnow((prev) =>
-  //       prev.filter((r) => {
-  //         const hit =
-  //           r.x < px + pSize &&
-  //           r.x + 20 > px &&
-  //           r.y < py + pSize &&
-  //           r.y + 20 > py;
-
-  //         if (hit) {
-  //           setScore((s) => s + 1);
-  //           return false; 
-  //         }
-
-  //         return true;
-  //       })
-  //     );
-  //   }, [snow]);
- useEffect(() => {
+  useEffect(() => {
     const check = setInterval(() => {
       if (!blueRef.current) return;
 
@@ -127,13 +102,13 @@ function Assignment_43() {
 
           if (hit) {
             setScore((s) => s + 1);
-            return false; // remove snow
+            return false;
           }
 
           return true;
         })
       );
-    }, 40); // check 25 times per sec
+    }, 40);
 
     return () => clearInterval(check);
   }, [bluePos]);

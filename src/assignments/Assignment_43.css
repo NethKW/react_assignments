@@ -32,7 +32,7 @@
     background: rgba(255, 255, 255, 0.136);
 }
 
-.blueBox {
+.asg-43 .blueBox {
     width: 25%;
     max-width: 150px;
     height: 20%;
@@ -44,7 +44,7 @@
     border-radius: 5px;
 }
 
-.snow {
+.asg-43 .snow {
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -52,9 +52,9 @@
 }
 
 .asg-43 .score {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 22px;
-  font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+    font-weight: bold;
 }
