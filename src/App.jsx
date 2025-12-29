@@ -52,6 +52,7 @@ function App() {
         <Link to="/ASG-41" className="alink">Assignment 41 - text editor</Link>
         <Link to="/ASG-42" className="alink">Assignment 42 - device orientation</Link>
         <Link to="/ASG-43" className="alink">Assignment 43 - device orientation - snow catch game</Link>
+        <Link to="/ASG-44" className="alink">Assignment 44 - device orientation - tilt catch game</Link>
       </div>
     </div>
   );
