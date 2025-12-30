@@ -45,14 +45,15 @@ function App() {
         <Link to="/ASG-35" className="alink">Assignment 35 - scroll video</Link>   
         <Link to="/ASG-36" className="alink">Assignment 36 - custom video player</Link>
         <Link to="/ASG-37" className="alink">Assignment 37 - slide puzzle</Link>
+        <Link to="/ASG-38" className="alink">Assignment 38 - slide puzzle</Link>
         <p>Web API Tasks </p>
-        <Link to="/ASG-38" className="alink">Assignment 38 - current location</Link>
-        <Link to="/ASG-39" className="alink">Assignment 39 - notification permission</Link>
-        <Link to="/ASG-40" className="alink">Assignment 40 - text & speech</Link>
-        <Link to="/ASG-41" className="alink">Assignment 41 - text editor</Link>
-        <Link to="/ASG-42" className="alink">Assignment 42 - device orientation</Link>
-        <Link to="/ASG-43" className="alink">Assignment 43 - device orientation - snow catch game</Link>
-        <Link to="/ASG-44" className="alink">Assignment 44 - device orientation - tilt catch game</Link>
+        <Link to="/ASGw-38" className="alink">Assignment 01 - current location</Link>
+        <Link to="/ASGw-39" className="alink">Assignment 02 - notification permission</Link>
+        <Link to="/ASGw-40" className="alink">Assignment 03 - text & speech</Link>
+        <Link to="/ASGw-41" className="alink">Assignment 04 - text editor</Link>
+        <Link to="/ASGw-42" className="alink">Assignment 05 - device orientation</Link>
+        <Link to="/ASGw-43" className="alink">Assignment 06 - device orientation - snow catch game</Link>
+        <Link to="/ASGw-44" className="alink">Assignment 07 - device orientation - tilt catch game</Link>
       </div>
     </div>
   );

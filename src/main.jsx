@@ -38,12 +38,13 @@ import Assignment_35 from './assignments/Assignment_35.jsx';
 import Assignment_36 from './assignments/Assignment_36.jsx';
 import Assignment_37 from './assignments/Assignment_37.jsx';
 import Assignment_38 from './assignments/Assignment_38.jsx';
-import Assignment_39 from './assignments/Assignment_39.jsx';
-import Assignment_40 from './assignments/Assignment_40.jsx';
-import Assignment_41 from './assignments/Assignment_41.jsx';
-import Assignment_42 from './assignments/Assignment_42.jsx';
-import Assignment_43 from './assignments/Assignment_43.jsx';
-import Assignment_44 from './assignments/Assignment_44.jsx';
+import AssignmentW_38 from './assignments/AssignmentW_38.jsx';
+import AssignmentW_39 from './assignments/AssignmentW_39.jsx';
+import AssignmentW_40 from './assignments/AssignmentW_40.jsx';
+import AssignmentW_41 from './assignments/AssignmentW_41.jsx';
+import AssignmentW_42 from './assignments/AssignmentW_42.jsx';
+import AssignmentW_43 from './assignments/AssignmentW_43.jsx';
+import AssignmentW_44 from './assignments/AssignmentW_44.jsx';
 import App from './App.jsx'
 
 
@@ -89,12 +90,13 @@ createRoot(document.getElementById('root')).render(
       <Route path="/ASG-36" element={<Assignment_36/>} />
       <Route path="/ASG-37" element={<Assignment_37/>} />
       <Route path="/ASG-38" element={<Assignment_38/>} />
-      <Route path="/ASG-39" element={<Assignment_39/>} />
-      <Route path="/ASG-40" element={<Assignment_40/>} />
-      <Route path="/ASG-41" element={<Assignment_41/>} />
-      <Route path="/ASG-42" element={<Assignment_42/>} />
-      <Route path="/ASG-43" element={<Assignment_43/>} />
-      <Route path="/ASG-44" element={<Assignment_44/>} />
+      <Route path="/ASGw-38" element={<AssignmentW_38/>} />
+      <Route path="/ASGw-39" element={<AssignmentW_39/>} />
+      <Route path="/ASGw-40" element={<AssignmentW_40/>} />
+      <Route path="/ASGw-41" element={<AssignmentW_41/>} />
+      <Route path="/ASGw-42" element={<AssignmentW_42/>} />
+      <Route path="/ASGw-43" element={<AssignmentW_43/>} />
+      <Route path="/ASGw-44" element={<AssignmentW_44/>} />
     </Routes>
   </HashRouter>
 )
