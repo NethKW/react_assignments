@@ -41,7 +41,9 @@
 }
 
 .asg-38 .bottle.selected {
-  transform: translateY(-25px) translateX(-5px) rotateZ(10deg);;
+  transform: translateY(-25px) translateX(-5px) rotateZ(10deg);
+  box-shadow: rgba(240, 243, 244, 0.734) 0px 15px 40px -12px;
+
 }
 
 .asg-38 .water {
