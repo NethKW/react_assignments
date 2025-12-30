@@ -1,4 +1,4 @@
-.main.asg-41 {
+.main.asgW-41 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
     color: white;
 }
 
-.asg-41 textarea {
+.asgW-41 textarea {
     width: 50%;
     height: 250px;
     padding: 12px;
@@ -20,13 +20,13 @@
     border-radius: 20px;
 }
 
-.asg-41 .buttons {
+.asgW-41 .buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
-.asg-41 button {
+.asgW-41 button {
     padding: 12px 20px;
     width: 120px;
     border-radius: 10px;
@@ -37,7 +37,7 @@
     color: #ffffff;
 }
 
-.asg-41 button:hover {
+.asgW-41 button:hover {
     background: #1f6397;
     color: black;
 }

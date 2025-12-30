@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-import "./Assignment_40.css";
+import "./AssignmentW_40.css";
 import typing from "../assets/typing.png"
 import voice from "../assets/voice record3.png"
-function Assignment_40() {
+function AssignmentW_40() {
     const [textToSpeak, setTextToSpeak] = useState("");
     const [recognizedText, setRecognizedText] = useState("");
     const recognitionRef = useRef(null);
@@ -50,7 +50,7 @@ function Assignment_40() {
     };
 
     return (
-        <div className="main asg-40">
+        <div className="main asgW-40">
             <h2>Text & Speech </h2>
             <div className="section">
                 <img src={typing} alt="typing" className="image" />
@@ -81,4 +81,4 @@ function Assignment_40() {
     );
 }
 
-export default Assignment_40;
+export default AssignmentW_40;

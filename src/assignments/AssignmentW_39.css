@@ -1,4 +1,4 @@
-.main.asg-39 {
+.main.asgW-39 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,11 +9,11 @@
   color: white;
 }
 
-.asg-39 h2 {
+.asgW-39 h2 {
   margin-bottom: 20px;
 }
 
-.asg-39 .notification-btn {
+.asgW-39 .notification-btn {
   background-color: #49a6d5;
   color: #111;
   font-weight: bold;
@@ -25,12 +25,12 @@
   margin-top: 10px;
 }
 
-.asg-39 .notification-btn:hover {
+.asgW-39 .notification-btn:hover {
   transform: scale(1.03);
   background-color: #61bfe9;
 }
 
-.asg-39 .notification-form {
+.asgW-39 .notification-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -39,7 +39,7 @@
   border-radius: 15px;
 }
 
-.asg-39 .notification-form input,
+.asgW-39 .notification-form input,
 .notification-form button {
   padding: 15px;
   border-radius: 8px;
@@ -49,13 +49,13 @@
   outline: none;
 }
 
-.asg-39 .upload{
+.asgW-39 .upload{
     display: grid;
     align-items: center;
     gap: 5px;
 }
 
-.asg-39 .notification-form input[type="file"] {
+.asgW-39 .notification-form input[type="file"] {
   background-color: #ffffff;
   padding: 15px;
   border-radius: 8px;
@@ -63,19 +63,19 @@
   color: white;
 }
 
-.asg-39 .notification-form button {
+.asgW-39 .notification-form button {
   background-color: #49a6d5;
   color: #111;
   font-weight: bold;
   cursor: pointer;
 }
 
-.asg-39 .notification-form button:disabled {
+.asgW-39 .notification-form button:disabled {
   background-color: #555;
   cursor: not-allowed;
 }
 
-.asg-39 .error{
+.asgW-39 .error{
     color: rgb(227, 5, 5);
     background-color: #ffffff48;
     border-radius: 10px;

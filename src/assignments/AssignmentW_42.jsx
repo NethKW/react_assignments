@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Assignment_42.css";
+import "./AssignmentW_42.css";
 
 function Assignment_42() {
   const [permissionGranted, setPermissionGranted] = useState(false);
@@ -44,7 +44,7 @@ function Assignment_42() {
   }, [permissionGranted]);
 
   return (
-    <div className="main asg-42">
+    <div className="main asgW-42">
       <h2>Device Orientation</h2>
 
       {!permissionGranted ? (

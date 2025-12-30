@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Assignment_39.css";
+import "./AssignmentW_39.css";
 
-function Assignment_39() {
+function AssignmentW_39() {
   const [permission, setPermission] = useState(Notification.permission);
   const [form, setForm] = useState({
     title: "",
@@ -45,7 +45,7 @@ function Assignment_39() {
   };
 
   return (
-    <div className="main asg-39">
+    <div className="main asgW-39">
       <h2>Notification Demo</h2>
 
       {permission !== "granted" && (
@@ -102,4 +102,4 @@ function Assignment_39() {
   );
 }
 
-export default Assignment_39;
+export default AssignmentW_39;
