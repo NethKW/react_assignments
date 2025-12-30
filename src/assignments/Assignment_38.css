@@ -1,5 +1,6 @@
 .main.asg-38 {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -8,39 +9,42 @@
     color: white;
 }
 
-.asg-38 .location {
-    background-color: rgba(255, 255, 255, 0.12);
-    padding: 40px 80px;
-    border-radius: 30px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+.asg-38 h2 {
+    margin-bottom: 20px;
 }
 
-.asg-38 .locationBtn {
-    background: #49a6d5;
-    border: none;
-    padding: 12px 25px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
+.asg-38 .puzzle {
+    background-color: #dddddd17;
+    padding: 70px 70px;
+    border-radius: 40px;
+}
+
+.asg-38 .bottles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.asg-38 .bottle {
+    width: 55px;
+    height: 200px;
+    border: 2px solid #eaeeef7f;
+    display: flex;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top: none;
+    flex-direction: column-reverse;
+    overflow: hidden;
     cursor: pointer;
-    margin-top: 15px;
-    transition: 0.3s;
 }
 
-.asg-38 .locationBtn:hover {
-    transform: scale(1.07);
-    background: #5dbce3;
+.asg-38 .water {
+    height: 25%;
 }
 
-.asg-38 .locationInfo {
-    margin-top: 30px;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.asg-38 .locationInfo p {
-    margin: 4px 0;
-    font-size: 17px;
-}
+.asg-38 .red { background: #e74c3c; }
+.asg-38 .blue { background: #3498db; }
+.asg-38 .green { background: #2ecc71; }
+.asg-38 .brown { background: #6c370f; }
+.asg-38 .purple { background: #9b59b6; }
+.asg-38 .orange { background: #f67d14; }
