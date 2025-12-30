@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(120deg, #2b5876, #4e4376);
     font-family: Arial, sans-serif;
     color: white;
 }
@@ -22,7 +22,7 @@
 .asg-38 .bottles {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 50px;
 }
 
 .asg-38 .bottle {
@@ -33,18 +33,24 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top: none;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.asg-38 .bottle.selected {
+  transform: translateY(-25px) translateX(-5px) rotateZ(10deg);;
 }
 
 .asg-38 .water {
     height: 25%;
 }
 
-.asg-38 .red { background: #e74c3c; }
-.asg-38 .blue { background: #3498db; }
-.asg-38 .green { background: #2ecc71; }
-.asg-38 .brown { background: #6c370f; }
-.asg-38 .purple { background: #9b59b6; }
-.asg-38 .orange { background: #f67d14; }
+.asg-38 .red { background: #cc383f; }
+.asg-38 .blue { background: #3383d6; }
+.asg-38 .green { background: #0da965; }
+.asg-38 .brown { background: #80363d; }
+.asg-38 .purple { background: #8036d6; }
+.asg-38 .orange { background: #cc833e; }
