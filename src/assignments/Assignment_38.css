@@ -15,7 +15,7 @@
 
 .asg-38 .puzzle {
     background-color: #dddddd17;
-    padding: 70px 70px;
+    padding: 40px 40px;
     border-radius: 40px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .asg-38 .bottle {
-    width: 55px;
+    width: 60px;
     height: 200px;
     border: 2px solid #282929c2;
     display: flex;
@@ -34,7 +34,6 @@
     border-bottom-right-radius: 30px;
     border-top: none;
     flex-direction: column-reverse;
-    /* justify-content: ; */
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -56,3 +55,23 @@
 .asg-38 .brown { background: #80363d; }
 .asg-38 .purple { background: #8036d6; }
 .asg-38 .orange { background: #cc833e; }
+
+
+.asg-38 .congrats-popup {
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.asg-38 .congrats-popup button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3383d6;
+    color: white;
+    cursor: pointer;
+}
+
+.asg-38 .congrats-popup button:hover {
+    background-color: #1f5aa6;
+}
