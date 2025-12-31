@@ -31,7 +31,14 @@ export default function Assignment_38() {
     waterFill(bottleSelect, i);
     setBottleSelect(null);
   }
-
+  //bottle complete
+  const isBottleCompleted = (bottle) => {
+    return (
+      bottle.length === 4 &&
+      bottle.every(color => color === bottle[0])
+    );
+  };
+  //game complete
   const isGameCompleted = (bottles) => {
     return bottles.every(
       (b) =>
@@ -89,23 +96,30 @@ export default function Assignment_38() {
 
       <div className="puzzle">
         <div className="bottles">
-          {bottle.map((bottle, i) => (
-            <div className={`bottle ${bottleSelect === i ? "selected" : ""}`} key={i} onClick={() => bottleClick(i)}>
-              {bottle.map((color, index) => (
-                <div
-                  key={index}
-                  className={`water ${color}`}
-                ></div>
-              ))}
-            </div>
-          ))}
+          {bottle.map((bottle, i) => {
+            const completedBottle = isBottleCompleted(bottle);
+            return (
+              <div className={`bottle 
+              ${bottleSelect === i ? "selected" : ""}
+              ${completedBottle ? "done" : ""}
+            `} key={i} onClick={() => bottleClick(i)}>
+                {completedBottle && <p className="done1">DONE</p>}
+                {bottle.map((color, index) => (
+                  <div
+                    key={index}
+                    className={`water ${color}`}
+                  ></div>
+                ))}
+              </div>
+            );
+          })}
         </div>
         {completed && (
-        <div className="congrats-popup">
-          <h2>Congratulations!</h2>
-          <button onClick={restartGame}>Restart Game</button>
-        </div>
-      )}
+          <div className="congrats-popup">
+            <h2>Congratulations!</h2>
+            <button onClick={restartGame}>Restart Game</button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -75,3 +75,19 @@
 .asg-38 .congrats-popup button:hover {
     background-color: #1f5aa6;
 }
+
+.asg-38 .bottle.done {
+  position: relative;
+}
+
+.asg-38 .done1 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: white;
+  padding: 0;
+}
+
