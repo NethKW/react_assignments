@@ -28,13 +28,13 @@
 .asg-38 .bottle {
     width: 55px;
     height: 200px;
-    border: 2px solid #eaeeef7f;
+    border: 2px solid #282929c2;
     display: flex;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     border-top: none;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    /* justify-content: ; */
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
