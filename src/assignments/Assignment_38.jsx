@@ -80,9 +80,9 @@ export default function Assignment_38() {
       }
 
       const space = 4 - target1.length;
-      const move = Math.min(count, space);
+      if (space < count) return;// check the enough space 
 
-      for (let i = 0; i < move; i++) {
+      for (let i = 0; i < count; i++) {
         target1.push(source1.pop());
       }
 
