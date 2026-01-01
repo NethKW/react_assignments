@@ -37,24 +37,46 @@
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: relative;
 }
 
-.asg-38 .bottle.selected {
+.asg-38 .bottle[data-hold="true"] {
   transform: translateY(-25px) translateX(-5px) rotateZ(10deg);
   box-shadow: rgba(240, 243, 244, 0.734) 0px 15px 40px -12px;
+}
 
+.asg-38 .bottle[data-complete="true"] {
+  cursor: pointer;
+  filter: brightness(1.3);
+  box-shadow: rgba(88, 0, 38, 0.734) 0px 15px 40px -12px;
+}
+
+.asg-38 .bottle[data-complete="false"] {
+  cursor: pointer;
 }
 
 .asg-38 .water {
     height: 25%;
 }
 
-.asg-38 .red { background: #cc383f; }
-.asg-38 .blue { background: #3383d6; }
-.asg-38 .green { background: #0da965; }
-.asg-38 .brown { background: #80363d; }
-.asg-38 .purple { background: #8036d6; }
-.asg-38 .orange { background: #cc833e; }
+.asg-38 .water[data-color="red"] {
+  background: #cc383f;
+}
+.asg-38 .water[data-color="blue"] {
+  background: #3383d6;
+}
+.asg-38 .water[data-color="green"] {
+  background: #0da965;
+}
+.asg-38 .water[data-color="brown"] {
+  background: #80363d;
+}
+.asg-38 .water[data-color="purple"] {
+  background: #8036d6;
+}
+.asg-38 .water[data-color="orange"] {
+  background: #cc833e;
+}
 
 
 .asg-38 .congrats-popup {
@@ -76,18 +98,20 @@
     background-color: #1f5aa6;
 }
 
-.asg-38 .bottle.done {
-  position: relative;
-}
-
 .asg-38 .done1 {
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 50%;
-  font-size: 14px;
+  font-size: 12px;
   transform: translate(-50%, -50%);
   font-weight: bold;
   color: white;
   padding: 0;
+}
+
+.asg-38 p{
+    font-size: 12px;
+    color: white;
+    text-align: center;
 }
 

@@ -12,6 +12,21 @@ const bottleFill = [
   ["green", "red", "orange"]
 ]
 
+//bottle complete
+const isBottleCompleted = (bottle) => {
+  return (
+    bottle.length === 4 &&
+    bottle.every(color => color === bottle[0])
+  );
+};
+//game complete
+const isGameCompleted = (bottles) => {
+  return bottles.every(
+    (b) =>
+      b.length === 0 || (b.length === 4 && b.every((color) => color === b[0]))
+  );
+};
+
 export default function Assignment_38() {
   const [bottle, setBottle] = useState(bottleFill); //game start display the bottleFill array color
   const [bottleSelect, setBottleSelect] = useState(null);
@@ -19,6 +34,8 @@ export default function Assignment_38() {
 
   const bottleClick = (i) => {
     if (completed) return;
+
+    if (isBottleCompleted(bottle[i])) return;
 
     if (bottleSelect === null) {
       setBottleSelect(i);
@@ -31,20 +48,6 @@ export default function Assignment_38() {
     waterFill(bottleSelect, i);
     setBottleSelect(null);
   }
-  //bottle complete
-  const isBottleCompleted = (bottle) => {
-    return (
-      bottle.length === 4 &&
-      bottle.every(color => color === bottle[0])
-    );
-  };
-  //game complete
-  const isGameCompleted = (bottles) => {
-    return bottles.every(
-      (b) =>
-        b.length === 0 || (b.length === 4 && b.every((color) => color === b[0]))
-    );
-  };
 
   const restartGame = () => {
     setBottle(bottleFill);
@@ -99,15 +102,19 @@ export default function Assignment_38() {
           {bottle.map((bottle, i) => {
             const completedBottle = isBottleCompleted(bottle);
             return (
-              <div className={`bottle 
-              ${bottleSelect === i ? "selected" : ""}
-              ${completedBottle ? "done" : ""}
-            `} key={i} onClick={() => bottleClick(i)}>
+              <div
+                key={i}
+                className="bottle"
+                data-complete={completedBottle}
+                data-hold={bottleSelect === i}
+                onClick={() => bottleClick(i)}>
                 {completedBottle && <p className="done1">DONE</p>}
                 {bottle.map((color, index) => (
                   <div
                     key={index}
-                    className={`water ${color}`}
+                    className="water"
+                    data-color={color}
+                    data-size={bottle.length}
                   ></div>
                 ))}
               </div>
