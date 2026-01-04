@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./AssignmentW_39.css";
+import "./AssignmentW_02.css";
 
 function AssignmentW_39() {
   const [permission, setPermission] = useState(Notification.permission);
@@ -45,7 +45,7 @@ function AssignmentW_39() {
   };
 
   return (
-    <div className="main asgW-39">
+    <div className="main asgW-02">
       <h2>Notification Demo</h2>
 
       {permission !== "granted" && (

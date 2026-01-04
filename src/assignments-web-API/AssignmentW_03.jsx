@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./AssignmentW_40.css";
+import "./AssignmentW_03.css";
 import typing from "../assets/typing.png"
 import voice from "../assets/voice record3.png"
 function AssignmentW_40() {
@@ -50,7 +50,7 @@ function AssignmentW_40() {
     };
 
     return (
-        <div className="main asgW-40">
+        <div className="main asgW-03">
             <h2>Text & Speech </h2>
             <div className="section">
                 <img src={typing} alt="typing" className="image" />

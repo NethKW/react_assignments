@@ -1,4 +1,4 @@
-.asgW-44.container {
+.asgW-07.container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,13 +7,13 @@
   background: url("../assets/background.png") no-repeat center/cover;
 }
 
-.asgW-44 .overlay {
+.asgW-07 .overlay {
   position: absolute;
   inset: 0;
   backdrop-filter: blur(8px);
 }
 
-.asgW-44 .base {
+.asgW-07 .base {
   width: 350px;
   height: 500px;
   background: url("../assets/background2.jpg") no-repeat center/cover;
@@ -23,14 +23,14 @@
   overflow: hidden;
 }
 
-.asgW-44 .item {
+.asgW-07 .item {
   position: absolute;
   width: 25px;
   height: 25px;
   background: url("../assets/leaf3.png") no-repeat center/cover;
 }
 
-.asgW-44 .player {
+.asgW-07 .player {
   position: absolute;
   width: 80px;
   height: 10px;
@@ -40,7 +40,7 @@
   top: 250px;
 }
 
-.asgW-44 .score {
+.asgW-07 .score {
   position: absolute;
   font-size: 24px;
   font-weight: 900;
@@ -50,7 +50,7 @@
   z-index: 1;
 }
 
-.asgW-44 .button {
+.asgW-07 .button {
   width: 120px;
   height: 45px;
   background-color: #708e1f;

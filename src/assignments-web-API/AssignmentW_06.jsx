@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
-import "./AssignmentW_43.css";
+import "./AssignmentW_06.css";
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 function Assignment_43() {
@@ -114,7 +114,7 @@ function Assignment_43() {
   }, [bluePos]);
 
   return (
-    <div className='main asgW-43'>
+    <div className='main asgW-06'>
       {!permissionGranted ? (
         <button className='enable' onClick={requestPermission}><PlayCircleFilledWhiteOutlinedIcon /></button>
       ) : (

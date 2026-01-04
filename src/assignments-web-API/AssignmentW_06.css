@@ -1,4 +1,4 @@
-.main.asgW-43 {
+.main.asgW-06 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
     color: #fff;
 }
 
-.asgW-43 .enable {
+.asgW-06 .enable {
     margin-top: 30px;
     padding: 15px 25px;
     background: #1b3a4b;
@@ -20,7 +20,7 @@
     cursor: pointer;
 }
 
-.asgW-43 .box {
+.asgW-06 .box {
     margin-top: 40px;
     width: 90vw;
     max-width: 450px;
@@ -32,7 +32,7 @@
     background: rgba(255, 255, 255, 0.136);
 }
 
-.asgW-43 .blueBox {
+.asgW-06 .blueBox {
     width: 25%;
     max-width: 150px;
     height: 20%;
@@ -44,14 +44,14 @@
     border-radius: 5px;
 }
 
-.asgW-43 .snow {
+.asgW-06 .snow {
     width: 20px;
     height: 20px;
     border-radius: 20px;
     position: absolute;
 }
 
-.asgW-43 .score {
+.asgW-06 .score {
     position: absolute;
     top: 10px;
     left: 10px;

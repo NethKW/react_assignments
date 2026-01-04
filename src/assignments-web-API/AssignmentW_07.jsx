@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-import "./AssignmentW_44.css"
+import "./AssignmentW_07.css"
 
 const width = 350
 const height = 450
@@ -143,7 +143,7 @@ export default function Assignment_44() {
   // return home screen
   if (screen === "home") {
     return (
-      <div className="asgW-44 container">
+      <div className="asgW-07 container">
         <button className="button" onClick={onInit}>
           Play
         </button>
@@ -162,7 +162,7 @@ export default function Assignment_44() {
 
   // return game screen
   return (
-    <div className="asgW-44 container" data-time={time}>
+    <div className="asgW-07 container" data-time={time}>
     <div className="overlay"></div>
       <div className="base">
         {/* score */}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import map from "../scripts/map.json";
-import "./AssignmentW_38.css";
+import "./AssignmentW_01.css";
 
 function AssignmentW_38() {
   const [info, setInfo] = useState({
@@ -78,7 +78,7 @@ function AssignmentW_38() {
   };
 
   return (
-    <div className="main asgW-38">
+    <div className="main asgW-01">
       <div className="location">
         <h2>Find Current Location </h2>
 
