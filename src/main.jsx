@@ -1,4 +1,4 @@
- import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import { HashRouter, Route, Routes } from "react-router-dom"
 import Assignment_1 from "./assignments/Assignment_1.jsx";
 import Assignment_2 from './assignments/Assignment_2.jsx';
@@ -38,13 +38,14 @@ import Assignment_35 from './assignments/Assignment_35.jsx';
 import Assignment_36 from './assignments/Assignment_36.jsx';
 import Assignment_37 from './assignments/Assignment_37.jsx';
 import Assignment_38 from './assignments/Assignment_38.jsx';
-import AssignmentW_38 from './assignments/AssignmentW_38.jsx';
-import AssignmentW_39 from './assignments/AssignmentW_39.jsx';
-import AssignmentW_40 from './assignments/AssignmentW_40.jsx';
-import AssignmentW_41 from './assignments/AssignmentW_41.jsx';
-import AssignmentW_42 from './assignments/AssignmentW_42.jsx';
-import AssignmentW_43 from './assignments/AssignmentW_43.jsx';
-import AssignmentW_44 from './assignments/AssignmentW_44.jsx';
+import AssignmentW_01 from './assignments-web-API/AssignmentW_01.jsx';
+import AssignmentW_02 from './assignments-web-API/AssignmentW_02.jsx';
+import AssignmentW_03 from './assignments-web-API/AssignmentW_03.jsx';
+import AssignmentW_04 from './assignments-web-API/AssignmentW_04.jsx';
+import AssignmentW_05 from './assignments-web-API/AssignmentW_05.jsx';
+import AssignmentW_06 from './assignments-web-API/AssignmentW_06.jsx';
+import AssignmentW_07 from './assignments-web-API/AssignmentW_07.jsx';
+import AssignmentW_08 from './assignments-web-API/AssignmentW_08.jsx';
 import App from './App.jsx'
 
 
@@ -61,42 +62,43 @@ createRoot(document.getElementById('root')).render(
       <Route path="/ASG-07" element={<Assignment_7 />} />
       <Route path="/ASG-08" element={<Assignment_8 />} />
       <Route path="/ASG-09" element={<Assignment_9 />} />
-      <Route path="/ASG-10" element={<Assignment_10/>} />
-      <Route path="/ASG-11" element={<Assignment_11/>} />
-      <Route path="/ASG-12" element={<Assignment_12/>} />
-      <Route path="/ASG-13" element={<Assignment_13/>} />
-      <Route path="/ASG-14" element={<Assignment_14/>} />
-      <Route path="/ASG-15" element={<Assignment_15/>} />
-      <Route path="/ASG-16" element={<Assignment_16/>} />
-      <Route path="/ASG-17" element={<Assignment_17/>} />
-      <Route path="/ASG-18" element={<Assignment_18/>} />
-      <Route path="/ASG-19" element={<Assignment_19/>} />
-      <Route path="/ASG-20" element={<Assignment_20/>} />
-      <Route path="/ASG-21" element={<Assignment_21/>} />
-      <Route path="/ASG-22" element={<Assignment_22/>} />
-      <Route path="/ASG-23" element={<Assignment_23/>} />
-      <Route path="/ASG-24" element={<Assignment_24/>} />
-      <Route path="/ASG-25" element={<Assignment_25/>} />
-      <Route path="/ASG-26" element={<Assignment_26/>} />
-      <Route path="/ASG-27" element={<Assignment_27/>} />
-      <Route path="/ASG-28" element={<Assignment_28/>} />
-      <Route path="/ASG-29" element={<Assignment_29/>} />
-      <Route path="/ASG-30" element={<Assignment_30/>} />
-      <Route path="/ASG-31" element={<Assignment_31/>} />
-      <Route path="/ASG-32" element={<Assignment_32/>} />
-      <Route path="/ASG-33" element={<Assignment_33/>} />
-      <Route path="/ASG-34" element={<Assignment_34/>} />
-      <Route path="/ASG-35" element={<Assignment_35/>} />
-      <Route path="/ASG-36" element={<Assignment_36/>} />
-      <Route path="/ASG-37" element={<Assignment_37/>} />
-      <Route path="/ASG-38" element={<Assignment_38/>} />
-      <Route path="/ASGw-38" element={<AssignmentW_38/>} />
-      <Route path="/ASGw-39" element={<AssignmentW_39/>} />
-      <Route path="/ASGw-40" element={<AssignmentW_40/>} />
-      <Route path="/ASGw-41" element={<AssignmentW_41/>} />
-      <Route path="/ASGw-42" element={<AssignmentW_42/>} />
-      <Route path="/ASGw-43" element={<AssignmentW_43/>} />
-      <Route path="/ASGw-44" element={<AssignmentW_44/>} />
+      <Route path="/ASG-10" element={<Assignment_10 />} />
+      <Route path="/ASG-11" element={<Assignment_11 />} />
+      <Route path="/ASG-12" element={<Assignment_12 />} />
+      <Route path="/ASG-13" element={<Assignment_13 />} />
+      <Route path="/ASG-14" element={<Assignment_14 />} />
+      <Route path="/ASG-15" element={<Assignment_15 />} />
+      <Route path="/ASG-16" element={<Assignment_16 />} />
+      <Route path="/ASG-17" element={<Assignment_17 />} />
+      <Route path="/ASG-18" element={<Assignment_18 />} />
+      <Route path="/ASG-19" element={<Assignment_19 />} />
+      <Route path="/ASG-20" element={<Assignment_20 />} />
+      <Route path="/ASG-21" element={<Assignment_21 />} />
+      <Route path="/ASG-22" element={<Assignment_22 />} />
+      <Route path="/ASG-23" element={<Assignment_23 />} />
+      <Route path="/ASG-24" element={<Assignment_24 />} />
+      <Route path="/ASG-25" element={<Assignment_25 />} />
+      <Route path="/ASG-26" element={<Assignment_26 />} />
+      <Route path="/ASG-27" element={<Assignment_27 />} />
+      <Route path="/ASG-28" element={<Assignment_28 />} />
+      <Route path="/ASG-29" element={<Assignment_29 />} />
+      <Route path="/ASG-30" element={<Assignment_30 />} />
+      <Route path="/ASG-31" element={<Assignment_31 />} />
+      <Route path="/ASG-32" element={<Assignment_32 />} />
+      <Route path="/ASG-33" element={<Assignment_33 />} />
+      <Route path="/ASG-34" element={<Assignment_34 />} />
+      <Route path="/ASG-35" element={<Assignment_35 />} />
+      <Route path="/ASG-36" element={<Assignment_36 />} />
+      <Route path="/ASG-37" element={<Assignment_37 />} />
+      <Route path="/ASG-38" element={<Assignment_38 />} />
+      <Route path="/ASGw-01" element={<AssignmentW_01 />} />
+      <Route path="/ASGw-02" element={<AssignmentW_02 />} />
+      <Route path="/ASGw-03" element={<AssignmentW_03 />} />
+      <Route path="/ASGw-04" element={<AssignmentW_04 />} />
+      <Route path="/ASGw-05" element={<AssignmentW_05 />} />
+      <Route path="/ASGw-06" element={<AssignmentW_06 />} />
+      <Route path="/ASGw-07" element={<AssignmentW_07 />} />
+      <Route path="/ASGw-08" element={<AssignmentW_08 />} />
     </Routes>
   </HashRouter>
 )

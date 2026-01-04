@@ -47,13 +47,14 @@ function App() {
         <Link to="/ASG-37" className="alink">Assignment 37 - slide puzzle</Link>
         <Link to="/ASG-38" className="alink">Assignment 38 - water sort puzzle</Link>
         <p>Web API Tasks </p>
-        <Link to="/ASGw-38" className="alink">Assignment 01 - current location</Link>
-        <Link to="/ASGw-39" className="alink">Assignment 02 - notification permission</Link>
-        <Link to="/ASGw-40" className="alink">Assignment 03 - text & speech</Link>
-        <Link to="/ASGw-41" className="alink">Assignment 04 - text editor</Link>
-        <Link to="/ASGw-42" className="alink">Assignment 05 - device orientation</Link>
-        <Link to="/ASGw-43" className="alink">Assignment 06 - device orientation - snow catch game</Link>
-        <Link to="/ASGw-44" className="alink">Assignment 07 - device orientation - tilt catch game</Link>
+        <Link to="/ASGw-01" className="alink">Assignment 01 - current location</Link>
+        <Link to="/ASGw-02" className="alink">Assignment 02 - notification permission</Link>
+        <Link to="/ASGw-03" className="alink">Assignment 03 - text & speech</Link>
+        <Link to="/ASGw-04" className="alink">Assignment 04 - text editor</Link>
+        <Link to="/ASGw-05" className="alink">Assignment 05 - device orientation</Link>
+        <Link to="/ASGw-06" className="alink">Assignment 06 - device orientation - snow catch game</Link>
+        <Link to="/ASGw-07" className="alink">Assignment 07 - device orientation - tilt catch game</Link>
+        <Link to="/ASGw-08" className="alink">Assignment 08 - device orientation - car game</Link>
       </div>
     </div>
   );
