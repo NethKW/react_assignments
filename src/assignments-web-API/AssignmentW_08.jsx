@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./AssignmentW_08.css"
 import sprites from "../scripts/highway-rush.json"
 
@@ -18,11 +18,36 @@ function Vehicle({ sprite, style }) {
 }
 
 export default function AssignmentW_08() {
+
+  const roadScrolling = useRef(0)
+  const [counter, setCounter] = useState(0)
+
+  useEffect(() => {
+    let frame = null
+    let previousTime = performance.now()
+
+    const update = (time) => {
+      frame = requestAnimationFrame(update)
+      const delta = time - previousTime //get delta time
+
+      roadScrolling.current += 0.3 * delta //update scrolling value
+      previousTime = time
+      setCounter(value => value + 1)
+    }
+    frame = requestAnimationFrame(update)
+
+    return () => {
+      cancelAnimationFrame(frame)
+    }
+  }, [])
   return (
     <div className="game asgW-08">
-      <div className="game-section">
+      <div className="game-section" data-counter={counter}>
 
-        <div className="road" />
+        <div className="road"
+          style={{
+            backgroundPositionY: `${roadScrolling.current}px`
+          }} />
 
         <Vehicle
           sprite={sprites[4]}

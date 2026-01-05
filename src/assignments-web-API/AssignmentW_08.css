@@ -16,10 +16,11 @@
 }
 
 .asgW-08 .road {
+  position: absolute;
   width: 100%;
   height: 100%;
   background-image: url("../assets/highway-rush-road.png");
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
 }
 
