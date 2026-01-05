@@ -15,14 +15,14 @@ function Vehicle({ sprite, style }) {
       }}
     />
   )
-} 
+}
 
 export default function AssignmentW_08() {
-   return (
+  return (
     <div className="game asgW-08">
       <div className="game-section">
 
-        <div className="road"/>
+        <div className="road" />
 
         <Vehicle
           sprite={sprites[4]}
