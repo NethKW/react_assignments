@@ -26,6 +26,7 @@ export default function AssignmentW_08() {
 
   const roadScrolling = useRef(0)
   const [counter, setCounter] = useState(0)
+  const [playerLane, setPlayerLane] = useState(1)
 
   const createCarPosition = () => {
     let carPosition = []
@@ -54,12 +55,13 @@ export default function AssignmentW_08() {
       previousTime = time
 
       carPositionRef.current = carPositionRef.current.map((enemy) => {
-        let newY = enemy.y + 0.3 * delta
+        let newY = enemy.y + 0.2 * delta
         let newX = enemy.x
 
         if (newY > gameScreen) {
+          const minY = Math.min(...carPositionRef.current.map(c => c.y))
           newX = roadLanes[Math.floor(Math.random() * roadLanes.length)]
-          newY = -(400 + Math.random() * 150)
+          newY = minY - (200 + Math.random() * 100)
         }
 
         return { ...enemy, y: newY, x: newX }
@@ -74,6 +76,22 @@ export default function AssignmentW_08() {
       cancelAnimationFrame(frame)
     }
   }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setPlayerLane((lane) => Math.max(0, lane - 1))
+      }
+      if (e.key === "ArrowRight") {
+        setPlayerLane((lane) => Math.min(roadLanes.length - 1, lane + 1))
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
+
   return (
     <div className="game asgW-08">
       <div className="game-section" data-counter={counter}>
@@ -86,8 +104,9 @@ export default function AssignmentW_08() {
         <Vehicle
           sprite={sprites[4]}
           style={{
-            left: "140px",
-            bottom: "40px"
+            left: `${roadLanes[playerLane]}px`,
+            bottom: "40px",
+            transition: "left 0.15s ease-out"
           }}
         />
 
