@@ -40,3 +40,28 @@
   font-size: 14px;
   border-radius: 6px;
 }
+
+.asgW-08 .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  text-align: center;
+}
+
+.asgW-08 .overlay button {
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
