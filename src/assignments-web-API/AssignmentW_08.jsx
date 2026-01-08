@@ -40,6 +40,7 @@ export default function AssignmentW_08() {
   const [counter, setCounter] = useState(0)
   const [carsOnRoad, setCarsOnRoad] = useState([])
   const [gameState, setGameState] = useState("start")
+  const [score, setScore] = useState(0)
   const previousCarTime = useRef(0)
   const move = useRef(0)
   const player = useRef(150)
@@ -60,15 +61,30 @@ export default function AssignmentW_08() {
       roadScrolling.current += 0.3 * delta //update scrolling value
       previousTime = time
 
-      player.current += move.current * 0.25 * delta
-      player.current = Math.max(55, Math.min(250, player.current))
+      if (gameStateRef.current === "playing") {
+        player.current += move.current * 0.25 * delta
+        player.current = Math.max(55, Math.min(250, player.current))
+      }
 
       setCounter(value => value + 1)
 
       if (gameStateRef.current === "playing") {
         setCarsOnRoad((prevCars) =>
           prevCars
-            .map((car) => ({ ...car, y: car.y + 0.2 * delta }))
+            .map((car) => {
+              const newY = car.y + 0.2 * delta;
+
+              const playerY = gameScreen - 35 - playerHeight;
+
+              // score when car safely passes player
+              if (!car.passed && newY > playerY) {
+                setScore((s) => s + 1);
+                return { ...car, y: newY, passed: true };
+              }
+
+              return { ...car, y: newY };
+            })
+
             .filter((car) => {
               const playerX = player.current;
               const playerY = gameScreen - 35 - playerHeight;
@@ -90,7 +106,7 @@ export default function AssignmentW_08() {
         if (time - previousCarTime.current > 1200) {
           const lane = roadLanes[Math.floor(Math.random() * roadLanes.length)];
           const sprite = cars[Math.floor(Math.random() * cars.length)];
-          setCarsOnRoad((prev) => [...prev, { sprite, x: lane, y: -150 }]);
+          setCarsOnRoad((prev) => [...prev, { sprite, x: lane, y: -150, passed: false }]);
           previousCarTime.current = time;
         }
       }
@@ -130,6 +146,7 @@ export default function AssignmentW_08() {
     setCarsOnRoad([])
     previousCarTime.current = 0
     setCounter(0)
+    setScore(0)
     setGameState("playing")
   }
 
@@ -147,6 +164,8 @@ export default function AssignmentW_08() {
           style={{
             left: `${player.current}px`,
             bottom: "40px",
+            transform: `rotateZ(${move.current * 10}deg)`,
+            transition: "transform 0.12s ease-out",
           }}
         />
 
@@ -159,7 +178,7 @@ export default function AssignmentW_08() {
         ))}
 
         {gameState === "playing" && (
-          <div className="score">Score:</div>
+          <div className="score">Score: {score}</div>
         )}
 
         {gameState === "start" && (
@@ -172,7 +191,7 @@ export default function AssignmentW_08() {
         {gameState === "gameOver" && (
           <div className="overlay">
             <h1>Game Over</h1>
-            <h3>Score:</h3>
+            <h3>Score:{score}</h3>
             <button onClick={startGame}>Restart</button>
           </div>
         )}
