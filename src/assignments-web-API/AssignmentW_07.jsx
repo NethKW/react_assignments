@@ -64,17 +64,17 @@ export default function Assignment_44() {
     const update = () => {
       // request next game frame
       frame = requestAnimationFrame(update)
-              // if (items.current.length < 3) {
-              //   const x = 20 + Math.random() * (width - 40)
+      // if (items.current.length < 3) {
+      //   const x = 20 + Math.random() * (width - 40)
 
-              //   const isOverlapX = items.current.some(
-              //     item => Math.abs(item.x - x) < itemSize
-              //   )
+      //   const isOverlapX = items.current.some(
+      //     item => Math.abs(item.x - x) < itemSize
+      //   )
 
-              //   if (!isOverlapX) {
-              //     items.current.push({ x, y: -20 })
-              //   }
-              // }
+      //   if (!isOverlapX) {
+      //     items.current.push({ x, y: -20 })
+      //   }
+      // }
       // create items if less than 3 and one after one with no overlap
       const now = Date.now()
       if (items.current.length < 3 && now - lastItemTime.current > delayTime) {
@@ -127,7 +127,7 @@ export default function Assignment_44() {
     // player update handler
     const updatePlayer = event => {
       // update player controller x position
-      player.current = (width / 2) + event.gamma
+      player.current = (width / 2) + (event.gamma) * 1.8
     }
     // add device orientation event listener
     window.addEventListener("deviceorientation", updatePlayer)
@@ -163,7 +163,7 @@ export default function Assignment_44() {
   // return game screen
   return (
     <div className="asgW-07 container" data-time={time}>
-    <div className="overlay"></div>
+      <div className="overlay"></div>
       <div className="base">
         {/* score */}
         <div className="score">
