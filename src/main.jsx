@@ -38,6 +38,7 @@ import Assignment_35 from './assignments/Assignment_35.jsx';
 import Assignment_36 from './assignments/Assignment_36.jsx';
 import Assignment_37 from './assignments/Assignment_37.jsx';
 import Assignment_38 from './assignments/Assignment_38.jsx';
+import Assignment_39 from './assignments/Assignment_39.jsx';
 import AssignmentW_01 from './assignments-web-API/AssignmentW_01.jsx';
 import AssignmentW_02 from './assignments-web-API/AssignmentW_02.jsx';
 import AssignmentW_03 from './assignments-web-API/AssignmentW_03.jsx';
@@ -91,6 +92,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/ASG-36" element={<Assignment_36 />} />
       <Route path="/ASG-37" element={<Assignment_37 />} />
       <Route path="/ASG-38" element={<Assignment_38 />} />
+      <Route path="/ASG-39" element={<Assignment_39 />} />
       <Route path="/ASGw-01" element={<AssignmentW_01 />} />
       <Route path="/ASGw-02" element={<AssignmentW_02 />} />
       <Route path="/ASGw-03" element={<AssignmentW_03 />} />
