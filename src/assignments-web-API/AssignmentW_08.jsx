@@ -133,9 +133,17 @@ export default function AssignmentW_08() {
     window.addEventListener("keydown", down)
     window.addEventListener("keyup", up)
 
+    const updatePlayer = (event) => {
+      const gamma = event.gamma || 0
+      player.current = 150 + (gamma)*1.6
+      player.current = Math.max(55, Math.min(250, player.current))
+    }
+    window.addEventListener("deviceorientation", updatePlayer)
+
     return () => {
       window.removeEventListener("keydown", down)
       window.removeEventListener("keyup", up)
+      window.removeEventListener("deviceorientation", updatePlayer)
     }
   }, [])
 
@@ -148,6 +156,20 @@ export default function AssignmentW_08() {
     setCounter(0)
     setScore(0)
     setGameState("playing")
+  }
+
+  const onInit = () => {
+    if (DeviceOrientationEvent.requestPermission) {
+      DeviceOrientationEvent.requestPermission().then(state => {
+        if (state === "granted") {
+          startGame()
+        } else {
+          alert("Please allow device motion permissions!")
+        }
+      })
+    } else {
+      startGame()
+    }
   }
 
   return (
@@ -184,7 +206,8 @@ export default function AssignmentW_08() {
         {gameState === "start" && (
           <div className="overlay">
             <h1>Highway Rush</h1>
-            <button onClick={startGame}>Start</button>
+
+            <button onClick={onInit}>Start</button>
           </div>
         )}
 
