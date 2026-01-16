@@ -31,9 +31,13 @@ export default function Assignment_39_basic() {
     setDragging(false);
   };
 
+  const handleMouseLeave = ()=>{
+    setDragging(false);
+  }
+
   return (
     <div className="main asg-39">
-      <div className="grid" onMouseUp={handleMouseUp}>
+      <div className="grid" onMouseUp={handleMouseUp} onMouseLeave={handleMouseLeave}>
         {Array.from({ length: height }).map((_, y) => (
           <div className="row" key={y}>
             {Array.from({ length: width }).map((_, x) => {
