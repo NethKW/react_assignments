@@ -31,7 +31,12 @@ export default function Assignment_39_basic() {
     setDragging(false);
   };
 
-  const handleMouseLeave = ()=>{
+  const handleMouseLeave = () => {
+    setDragging(false);
+  }
+
+  const reset = () => {
+    setPath([]);
     setDragging(false);
   }
 
@@ -63,6 +68,7 @@ export default function Assignment_39_basic() {
           </div>
         ))}
       </div>
+      <button className="button" onClick={reset}>Reset</button>
     </div>
   );
 }
