@@ -64,7 +64,7 @@ export default function Assignment_39_basic() {
               return (
                 <div
                   key={x}
-                  className={`cell ${isActive ? "active" : ""}`}
+                  className={`cell ${isActive ? "active" : ""} ${cell ? "fixed" : ""}`}
                   onMouseDown={() => handleMouseDown(x, y)}
                   onMouseEnter={() => handleMouseEnter(x, y)}
                 >
