@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Assignment_39_basic.css";
+import inputData from "../scripts/hidato.json";
 
+const puzzle = inputData[0];
+const { width, height, fixed } = puzzle;
 export default function Assignment_39_basic() {
-  const width = 3;
-  const height = 3;
 
   const [path, setPath] = useState([]);
   const [dragging, setDragging] = useState(false);
+  const [grid, setGrid] = useState([]);
+
+  useEffect(() => {
+    const empty = Array(height)
+      .fill(null)
+      .map(() => Array(width).fill(null));
+
+    fixed.forEach(f => {
+      empty[f.y][f.x] = f.value;
+    });
+
+    setGrid(empty);
+  }, []);
 
   const handleMouseDown = (x, y) => {
     setPath([{ x, y }]);
@@ -27,13 +41,9 @@ export default function Assignment_39_basic() {
     });
   };
 
-  const handleMouseUp = () => {
+  const stopDragging = () => {
     setDragging(false);
   };
-
-  const handleMouseLeave = () => {
-    setDragging(false);
-  }
 
   const reset = () => {
     setPath([]);
@@ -42,15 +52,12 @@ export default function Assignment_39_basic() {
 
   return (
     <div className="main asg-39">
-      <div className="grid" onMouseUp={handleMouseUp} onMouseLeave={handleMouseLeave}>
-        {Array.from({ length: height }).map((_, y) => (
+      <div className="grid" onMouseUp={stopDragging} onMouseLeave={stopDragging}>
+        {grid.map((row, y) => (
           <div className="row" key={y}>
-            {Array.from({ length: width }).map((_, x) => {
+            {row.map((cell, x) => {
 
-              const index = path.findIndex(
-                p => p.x === x && p.y === y
-              );
-
+              const index = path.findIndex(p => p.x === x && p.y === y);
               const isActive = index !== -1;
               const number = index + 1;
 
@@ -61,10 +68,12 @@ export default function Assignment_39_basic() {
                   onMouseDown={() => handleMouseDown(x, y)}
                   onMouseEnter={() => handleMouseEnter(x, y)}
                 >
-                  {isActive && number}
+                  {cell || (isActive && number)}
                 </div>
               );
+
             })}
+
           </div>
         ))}
       </div>

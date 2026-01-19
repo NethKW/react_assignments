@@ -39,10 +39,14 @@
   background-color: #10b981;
 }
 
+.cell.fixed {
+  background-color: #2563eb;
+}
+
 .asg-39 .button {
   padding: 10px 20px;
   font-weight: bold;
-  background-color: #aae4f6;
+  background-color: rgb(185, 198, 255);
   border: none;
   border-radius: 10px;
   cursor: pointer;
