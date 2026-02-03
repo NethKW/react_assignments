@@ -75,7 +75,12 @@
   gap: 10px;
 }
 
-.asg-39 p{
+.asg-39 p {
   font-size: 14px;
   color: #000000;
+}
+
+.asg-39 .congratulation {
+  font-size: large;
+  color: #1fd1b9;
 }

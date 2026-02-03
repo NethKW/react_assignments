@@ -124,14 +124,21 @@ export default function Assignment_39_basic() {
       </div>
       <button className="button" onClick={reset}>Reset</button>
       {win && (
-        <div>
-          <button className="button1" onClick={nextLevel}>
-            <p> Next Level
+        level < inputData.length - 1 ? (
+          <div>
+            <button className="button1" onClick={nextLevel}>
+              <p> Next Level
+              </p>
+              <ArrowRightAltOutlinedIcon />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <p className="congratulation">
+              Congratulation...!
             </p>
-            <ArrowRightAltOutlinedIcon />
-          </button>
-        </div>
-      )}
+          </div>
+        ))}
 
 
     </div>
