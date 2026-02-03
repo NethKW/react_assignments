@@ -34,14 +34,18 @@
   font-weight: bold;
   color: white;
 }
+.asg-39 .cell[data-dragging="true"] {
+  background-color: #3b82f6;
+}
 
-.asg-39 .cell.active {
+.asg-39 .cell[data-win="true"] {
   background-color: #10b981;
 }
 
-.cell.fixed {
-  background-color: #2563eb;
+.asg-39 .cell[data-error="true"] {
+  background-color: #ef4444;
 }
+
 
 .asg-39 .button {
   padding: 10px 20px;
@@ -51,3 +55,4 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
