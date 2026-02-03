@@ -34,9 +34,15 @@
   font-weight: bold;
   color: white;
 }
-.asg-39 .cell[data-dragging="true"] {
+
+.asg-39 .cell[data-dragging="true"][data-fixed="false"] {
   background-color: #3b82f6;
 }
+
+.asg-39 .cell[data-dragging="true"][data-fixed="true"] {
+  background-color: #69bed8e2;
+}
+
 
 .asg-39 .cell[data-win="true"] {
   background-color: #10b981;
@@ -45,7 +51,6 @@
 .asg-39 .cell[data-error="true"] {
   background-color: #ef4444;
 }
-
 
 .asg-39 .button {
   padding: 10px 20px;
@@ -56,3 +61,21 @@
   cursor: pointer;
 }
 
+.asg-39 .button1 {
+  padding: 0px 20px;
+  font-weight: bold;
+  background-color: rgb(185, 198, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.asg-39 p{
+  font-size: 14px;
+  color: #000000;
+}

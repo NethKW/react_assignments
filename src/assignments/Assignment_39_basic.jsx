@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Assignment_39_basic.css";
 import inputData from "../scripts/hidato.json";
+import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 
-const puzzle = inputData[0];
-const { width, height, fixed } = puzzle;
 export default function Assignment_39_basic() {
-
   const [path, setPath] = useState([]);
   const [dragging, setDragging] = useState(false);
   const [grid, setGrid] = useState([]);
   const [win, setWin] = useState(false);
   const [incomplete, setIncomplete] = useState(false);
   const [wrongCells, setWrongCells] = useState([]);
+  const [level, setLevel] = useState(0);
+  const puzzle = inputData[level];
+  const { width, height, fixed } = puzzle;
 
   useEffect(() => {
     const empty = Array(height)
@@ -23,7 +24,18 @@ export default function Assignment_39_basic() {
     });
 
     setGrid(empty);
-  }, []);
+    setPath([]);
+    setDragging(false);
+    setWin(false);
+    setIncomplete(false);
+    setWrongCells([]);
+  }, [level]);
+
+  const nextLevel = () => {
+    if (level < inputData.length - 1) {
+      setLevel(prev => prev + 1);
+    }
+  };
 
   const handleMouseDown = (x, y) => {
     setPath([{ x, y }]);
@@ -103,7 +115,6 @@ export default function Assignment_39_basic() {
                 >
                   {cell || (isActive && number)}
                 </div>
-
               );
 
             })}
@@ -112,7 +123,17 @@ export default function Assignment_39_basic() {
         ))}
       </div>
       <button className="button" onClick={reset}>Reset</button>
-      {win && <div className="win">🎉 You Win!</div>}
+      {win && (
+        <div>
+          <button className="button1" onClick={nextLevel}>
+            <p> Next Level
+            </p>
+            <ArrowRightAltOutlinedIcon />
+          </button>
+        </div>
+      )}
+
+
     </div>
   );
 }
