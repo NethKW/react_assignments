@@ -10,6 +10,19 @@ const exampleValidGrid = [
 
 export default function Assignment_40() {
   const [isValid, setIsValid] = useState(false);
+  const [grid, setGrid] = useState([]);
+
+  const createRandomRow = () => {
+    return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
+  };
+
+  const createRandomGrid = () => {
+    const newGrid = [];
+    for (let i = 0; i < 4; i++) {
+      newGrid.push(createRandomRow());
+    }
+    return newGrid;
+  };
 
   const isValidColumns = grid => {
     for (let col = 0; col < 4; col++) {
@@ -42,7 +55,9 @@ export default function Assignment_40() {
   };
 
   useEffect(() => {
-    const valid = validateGrid(exampleValidGrid);
+    const newGrid = createRandomGrid();
+    setGrid(newGrid);
+    const valid = validateGrid(newGrid);
     setIsValid(valid);
 
     console.log("Grid Valid:", valid);
@@ -51,7 +66,7 @@ export default function Assignment_40() {
   return (
     <div className="main asg-40">
       <div className="grid">
-        {exampleValidGrid.map((row, rIndex) => (
+        {grid.map((row, rIndex) => (
           <div className="row" key={rIndex}>
             {row.map((cell, cIndex) => (
               <div className="cell" key={cIndex}>
