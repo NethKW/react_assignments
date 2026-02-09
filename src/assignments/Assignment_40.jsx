@@ -7,60 +7,68 @@ const exampleValidGrid = [
   [1, 3, 2, 4],
   [4, 2, 3, 1]
 ]
+const createRandomRow = () => {
+  return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
+};
+
+const createRandomGrid = () => {
+  const newGrid = [];
+  for (let i = 0; i < 4; i++) {
+    newGrid.push(createRandomRow());
+  }
+  return newGrid;
+};
+
+const isValidColumns = grid => {
+  for (let col = 0; col < 4; col++) {
+    const values = new Set();
+    for (let row = 0; row < 4; row++) {
+      if (values.has(grid[row][col])) return false;
+      values.add(grid[row][col]);
+    }
+  }
+  return true;
+};
+
+const isValidBoxes = grid => {
+  for (let row = 0; row < 4; row += 2) {
+    for (let col = 0; col < 4; col += 2) {
+      const values = new Set();
+      for (let r = row; r < row + 2; r++) {
+        for (let c = col; c < col + 2; c++) {
+          if (values.has(grid[r][c])) return false;
+          values.add(grid[r][c]);
+        }
+      }
+    }
+  }
+  return true;
+};
+
+const validateGrid = grid => {
+  return isValidColumns(grid) && isValidBoxes(grid);
+};
+
+const createSudoku = () => {
+  let isValid = false;
+  let grid = [];
+
+  while (!isValid) {
+    grid = createRandomGrid();
+    isValid = validateGrid(grid);
+  }
+
+  return grid;
+};
 
 export default function Assignment_40() {
   const [isValid, setIsValid] = useState(false);
   const [grid, setGrid] = useState([]);
 
-  const createRandomRow = () => {
-    return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
-  };
-
-  const createRandomGrid = () => {
-    const newGrid = [];
-    for (let i = 0; i < 4; i++) {
-      newGrid.push(createRandomRow());
-    }
-    return newGrid;
-  };
-
-  const isValidColumns = grid => {
-    for (let col = 0; col < 4; col++) {
-      const values = new Set();
-      for (let row = 0; row < 4; row++) {
-        if (values.has(grid[row][col])) return false;
-        values.add(grid[row][col]);
-      }
-    }
-    return true;
-  };
-
-  const isValidBoxes = grid => {
-    for (let row = 0; row < 4; row += 2) {
-      for (let col = 0; col < 4; col += 2) {
-        const values = new Set();
-        for (let r = row; r < row + 2; r++) {
-          for (let c = col; c < col + 2; c++) {
-            if (values.has(grid[r][c])) return false;
-            values.add(grid[r][c]);
-          }
-        }
-      }
-    }
-    return true;
-  };
-
-  const validateGrid = grid => {
-    return isValidColumns(grid) && isValidBoxes(grid);
-  };
-
   useEffect(() => {
-    const newGrid = createRandomGrid();
-    setGrid(newGrid);
-    const valid = validateGrid(newGrid);
-    setIsValid(valid);
-
-    console.log("Grid Valid:", valid);
+    const sudoku = createSudoku();
+    setGrid(sudoku);
+    setIsValid(true);
   }, []);
 
   return (
