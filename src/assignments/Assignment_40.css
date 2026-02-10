@@ -38,3 +38,13 @@
 .asg-40 p {
     color: #ffffff;
 }
+
+.asg-40 .cell[data-fixed="true"] {
+    background-color: #5bbcd9;
+    color: white;
+    cursor: default;
+}
+
+.asg-40 .cell[data-fixed="false"] {
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Assignment_40.css";
 
+// eslint-disable-next-line no-unused-vars
 const exampleValidGrid = [
   [2, 1, 4, 3],
   [3, 4, 1, 2],
@@ -51,23 +52,55 @@ const validateGrid = grid => {
 
 const createSudoku = () => {
   let isValid = false;
-  let grid = [];
+  let answer = [];
 
   while (!isValid) {
-    grid = createRandomGrid();
-    isValid = validateGrid(grid);
+    answer = createRandomGrid();
+    isValid = validateGrid(answer);
   }
 
-  return grid;
+  const challenge = Array.from({ length: 4 }, () =>
+    Array(4).fill(null)
+  );
+
+  for (let row = 0; row < 4; row += 2) {
+    for (let col = 0; col < 4; col += 2) {
+
+      const r = row + Math.floor(Math.random() * 2);
+      const c = col + Math.floor(Math.random() * 2);
+
+      challenge[r][c] = answer[r][c];
+    }
+  }
+
+  return { answer, challenge };
 };
+
 
 export default function Assignment_40() {
   const [isValid, setIsValid] = useState(false);
   const [grid, setGrid] = useState([]);
+  const [answer, setAnswer] = useState([]);
+  const [challenge, setChallenge] = useState([]);
+
+  const handleClick = (rIndex, cIndex) => {
+    if (challenge[rIndex][cIndex] !== null) return;
+
+    setGrid(prevGrid => prevGrid.map((row, r) =>
+      row.map((cell, c) => {
+        if (r === rIndex && c === cIndex) {
+          if (cell === null || cell === 4) return 1;
+          return cell + 1;
+        }
+        return cell;
+      })))
+  }
 
   useEffect(() => {
-    const sudoku = createSudoku();
-    setGrid(sudoku);
+    const { answer, challenge } = createSudoku();
+    setAnswer(answer);
+    setGrid(challenge);
+    setChallenge(challenge);
     setIsValid(true);
   }, []);
 
@@ -77,14 +110,15 @@ export default function Assignment_40() {
         {grid.map((row, rIndex) => (
           <div className="row" key={rIndex}>
             {row.map((cell, cIndex) => (
-              <div className="cell" key={cIndex}>
+              <div className="cell" key={cIndex}
+                data-fixed={challenge[rIndex][cIndex] !== null}
+                onClick={() => handleClick(rIndex, cIndex)}>
                 {cell}
               </div>
             ))}
           </div>
         ))}
       </div>
-      <p>{isValid ? "Valid" : "Invalid"} </p>
     </div>
   );
 }
