@@ -82,6 +82,26 @@ export default function Assignment_40() {
   const [grid, setGrid] = useState([]);
   const [answer, setAnswer] = useState([]);
   const [challenge, setChallenge] = useState([]);
+  const [result, setResult] = useState("");
+
+  const checkGrid = () => {
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 4; c++) {
+        if (grid[r][c] === null) {
+          setResult("Please fill all cells");
+          return;
+        }
+
+        if (grid[r][c] !== answer[r][c]) {
+          setResult("wrong sudoku");
+          return;
+        }
+      }
+    }
+
+    setResult("You are correct....!");
+  };
+
 
   const handleClick = (rIndex, cIndex) => {
     if (challenge[rIndex][cIndex] !== null) return;
@@ -98,6 +118,12 @@ export default function Assignment_40() {
 
   useEffect(() => {
     const { answer, challenge } = createSudoku();
+    console.log("ANSWER GRID:");
+    console.table(answer);
+
+    console.log("CHALLENGE GRID:");
+    console.table(challenge);
+
     setAnswer(answer);
     setGrid(challenge);
     setChallenge(challenge);
@@ -119,6 +145,12 @@ export default function Assignment_40() {
           </div>
         ))}
       </div>
+      <button className="check-btn" onClick={checkGrid}>
+        Check
+      </button>
+
+      {result && <p className="result">{result}</p>}
+
     </div>
   );
 }
